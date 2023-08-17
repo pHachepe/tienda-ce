@@ -6,6 +6,8 @@
   },
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" },
-    { "src": "/config/db.php", "dest": "/api/config/db.php" }
+    { "src": "/config/db.php", "dest": "/api/config/db.php" },
+    { "src": "/autoload.php", "dest": "/api/autoload.php" },
+    { "src": "/vendor/(.*)", "dest": "/api/vendor/$1" }
   ]
 }
