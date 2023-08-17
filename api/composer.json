@@ -1,0 +1,18 @@
+{
+    "name": "abraham/tienda",
+    "description": "Tienda Abraham - Comercio Electronico",
+    "autoload": {
+        "psr-4": {
+            "Abraham\\Tienda\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PeHachePe",
+            "email": "pehachepe@uoc.edu"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
