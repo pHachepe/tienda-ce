@@ -1,5 +1,6 @@
 <?php
 echo "SERVER_NAME: " . $_SERVER['SERVER_NAME'] . "<br>";
+echo "TIDB_NAME: " . $_ENV['TIDB_NAME'] . "<br>";
 if ($_SERVER['SERVER_NAME'] === 'localhost') {
     require __DIR__ . '/../vendor/autoload.php'; // Ruta correcta al archivo autoload.php de Composer
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..'); // Ruta correcta al archivo .env
