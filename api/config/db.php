@@ -28,6 +28,7 @@ if ($_SERVER['SERVER_NAME'] === 'localhost') {
 } else {
     //$conn = new mysqli($_ENV['TIDB_HOST'], $_ENV['TIDB_USER'], $_ENV['TIDB_PASSWORD'], $_ENV['TIDB_NAME'], $_ENV['TIDB_PORT']);
     // connect with ssl in tidb
+    $conn = mysqli_init();
     $conn->ssl_set(
         NULL,
         NULL,
