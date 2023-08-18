@@ -7,7 +7,7 @@
   "routes": [
     { "src": "/(.*)", "dest": "/api/index.php" },
     { "src": "/config/db.php", "dest": "/api/config/db.php" },
-    { "src": "config/../vendor/autoload.php", "dest": "/api/config/../vendor/autoload.php" },
-    { "src": "/vendor/(.*)", "dest": "/api/vendor/$1" }
+    { "src": "/img/(.*)", "dest": "/api/img/$1" },
+    { "src": "/includes/(.*)", "dest": "/api/includes/$1" }
   ]
 }
