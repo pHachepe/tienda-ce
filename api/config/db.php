@@ -1,8 +1,10 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php'; // Ruta correcta al archivo autoload.php de Composer
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..'); // Ruta correcta al archivo .env
-$dotenv->load();
-
+// if is local
+if ($_SERVER['SERVER_NAME'] === 'localhost') {
+    require __DIR__ . '/../vendor/autoload.php'; // Ruta correcta al archivo autoload.php de Composer
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..'); // Ruta correcta al archivo .env
+    $dotenv->load();
+}
 $servername = $_ENV['TIDB_HOST'];
 $dbname = $_ENV['TIDB_NAME'];
 $username = $_ENV['TIDB_USER'];
@@ -15,5 +17,5 @@ mysqli_real_connect($conn, $servername, $username, $password, $dbname, 4000, NUL
 
 // Check connection
 if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
