@@ -17,8 +17,9 @@ $conn = mysqli_init();
 //} else {
 //    mysqli_real_connect($conn, $servername, $username, $password, $dbname);
 //}
-echo $_SERVER['SERVER_NAME'];
-echo "es el server name ". $_SERVER['SERVER_NAME'] === 'localhost';
+echo "server: " . $_SERVER['SERVER_NAME'];
+$isLocal = $_SERVER['SERVER_NAME'] === 'localhost';
+echo "es el server local? " . $isLocal;
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
