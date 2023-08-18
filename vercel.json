@@ -6,6 +6,8 @@
   },
   "routes": [
     { "src": "/config/db.php", "dest": "/api/config/db.php" },
+    { "src": "/img/default.png", "dest": "/api/img/$1" },
+    { "src": "/img/(.*)", "dest": "/api/img/$1" },
     { "src": "/img/(.*)", "dest": "/api/img/$1" },
     { "src": "/includes/(.*)", "dest": "/api/includes/$1" },
     { "src": "/(.*)", "dest": "/api/index.php" }
