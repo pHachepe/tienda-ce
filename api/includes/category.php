@@ -73,7 +73,10 @@ if (isset($_GET['categoria'])) {
 <!-- Pagination -->
 <div class="flex justify-center items-center mb-6">
     <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-        <a href="?categoria=<?php echo $category; ?>&page=<?php echo $i; ?>" class="mx-1 px-3 py-2 rounded-md <?php echo ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'; ?>">
+        <a href="?categoria=<?php echo $category; ?>
+                 &page=<?php echo $i; ?>"
+                 class="mx-1 px-3 py-2 rounded-md <?php echo ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400';
+                 ?>">
             <?php echo $i; ?>
         </a>
     <?php } ?>

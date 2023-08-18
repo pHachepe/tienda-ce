@@ -20,6 +20,8 @@ require_once 'config/db.php';
                 include 'includes/product_details.php';
             } else if (isset($_GET['categoria'])) {
                 include 'includes/category.php';
+            } else if (isset($_GET['search'])) {
+                include 'includes/search.php';
             } else {
                 include 'includes/random_products.php';
             }

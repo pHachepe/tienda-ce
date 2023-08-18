@@ -16,10 +16,11 @@ for ($i = 0; $i < $filas; $i++) {
             <a href="index.php"><?php echo TITLE; ?></a>
         </h1>
 
-        <div class="relative col-span-4 flex">
-            <input type="text" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
+        <form method="GET" class="relative col-span-4 flex">
+            <input type="text" name="search" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
             <i class="absolute top-1/2 right-3 transform -translate-y-1/2 fas fa-search text-gray-600"></i>
-        </div>
+        </form>
+
         <div class="col-span-1 flex justify-end items-center space-x-4">
             <a href="#" class="hover:text-gray-300"><i class="fas fa-shopping-cart"></i> <?php echo CESTA; ?></a>
             <!-- Dropdown de Mi Cuenta -->
