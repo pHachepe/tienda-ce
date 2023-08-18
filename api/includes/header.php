@@ -25,7 +25,7 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown de Mi Cuenta -->
             <div class="relative group">
                 <button class="hover:text-gray-300 focus:outline-none">
-                    <i class="fas fa-user"></i><?php echo MI_CUENTA; ?>
+                    <i class="fas fa-user"></i> <?php echo MI_CUENTA; ?>
                 </button>
                 <div class="absolute top-full w-64 -left-24 group-hover:block hidden">
                     <?php include 'form_login.php'; ?>
