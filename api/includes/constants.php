@@ -1,6 +1,7 @@
 <?php
 const TITLE = 'InfinityStock';
 const HOME = 'Inicio';
+const RECOMENDADOS = 'Recomendados';
 const SEPARATOR = '>';
 const CESTA = 'Cesta';
 const MI_CUENTA = 'Mi cuenta';
