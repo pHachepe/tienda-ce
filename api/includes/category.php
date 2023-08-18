@@ -65,7 +65,7 @@ if (isset($_GET['categoria'])) {
 <?php } else { ?>
     <div class="content m-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <?php foreach ($productos as $producto) {
-            include 'includes/product_box.php';
+            include 'product_box.php';
          } ?>
     </div>
 <?php } ?>
