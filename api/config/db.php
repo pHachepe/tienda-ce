@@ -12,11 +12,11 @@ $password = $_ENV['TIDB_PASSWORD'];
 // Create connection
 $conn = mysqli_init();
 //mysqli_ssl_set($conn, NULL, NULL, "/etc/ssl/cert.pem", NULL, NULL);
-if (!$_SERVER['SERVER_NAME'] === 'localhost') {
+//if (!$_SERVER['SERVER_NAME'] === 'localhost') {
     mysqli_real_connect($conn, $servername, $username, $password, $dbname, 4000, NULL, MYSQLI_CLIENT_SSL);
-} else {
-    mysqli_real_connect($conn, $servername, $username, $password, $dbname);
-}
+//} else {
+//    mysqli_real_connect($conn, $servername, $username, $password, $dbname);
+//}
 
 // Check connection
 if (!$conn) {
