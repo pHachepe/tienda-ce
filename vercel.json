@@ -5,7 +5,7 @@
     }
   },
   "routes": [
-    { "src": "/(.*)",  "dest": "/api/index.php" },
-    { "src": "/img/(.*)",  "dest": "https://raw.githubusercontent.com/pHachepe/tienda-ce/main/api/img/$1" }
+    { "src": "/img/(.*)",  "dest": "https://raw.githubusercontent.com/pHachepe/tienda-ce/main/api/img/$1" },
+    { "src": "/(.*)",  "dest": "/api/index.php" }
   ]
 }
