@@ -4,6 +4,7 @@ const HOME = 'Inicio';
 const SEPARATOR = '>';
 const CESTA = 'Cesta';
 const MI_CUENTA = 'Mi cuenta';
+const INICIAR_SESION = 'Iniciar Sesión';
 const BUSCAR = 'Buscar';
 const CATEGORIAS = 'Categorías';
 const NO_PRODUCTS = 'No hay productos en esta categoría';

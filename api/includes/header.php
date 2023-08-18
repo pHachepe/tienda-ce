@@ -22,7 +22,16 @@ for ($i = 0; $i < $filas; $i++) {
         </div>
         <div class="col-span-1 flex justify-end items-center space-x-4">
             <a href="#" class="hover:text-gray-300"><i class="fas fa-shopping-cart"></i> <?php echo CESTA; ?></a>
-            <a href="#" class="hover:text-gray-300"><i class="fas fa-user"></i> <?php echo MI_CUENTA; ?></a>
+            <!-- Dropdown de Mi Cuenta -->
+            <div class="relative group">
+                <button class="hover:text-gray-300 focus:outline-none">
+                    <i class="fas fa-user"></i><?php echo MI_CUENTA; ?>
+                </button>
+                <div class="absolute top-full w-64 -left-24 group-hover:block hidden">
+                    <?php include 'form_login.php'; ?>
+                </div>
+            </div>
+            <!-- Fin del Dropdown de Mi Cuenta -->
         </div>
     </div>
     <div class="container mx-auto py-2">
