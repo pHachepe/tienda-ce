@@ -3,6 +3,10 @@ $id = $conn->real_escape_string($_GET['producto']);
 $sql = "SELECT * FROM productos WHERE id = $id";
 $resultado = $conn->query($sql);
 $producto = $resultado->fetch_assoc();
+
+if (!$producto) {
+    header('Location: index.php');
+}
 ?>
 
 <div class="container mx-auto py-8">
