@@ -1,6 +1,6 @@
 <?php
 // ToDo: Remove this and use the real product data
-foreach ($productos as $key => $producto) {
+foreach ($productos as &$producto) {
     $producto['calificacion'] = 0;
 }
 ?>
