@@ -61,22 +61,19 @@ if (isset($_GET['categoria'])) {
             <h2 class="text-lg font-semibold text-gray-800"><?php echo NO_PRODUCTS; ?></h2>
         </div>
     </div>
-<!-- Products -->
+    <!-- Products -->
 <?php } else { ?>
     <div class="content m-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <?php foreach ($productos as $producto) {
             include 'product_box.php';
-         } ?>
+        } ?>
     </div>
 <?php } ?>
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mb-6">
     <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-        <a href="?categoria=<?php echo $category; ?>
-                 &page=<?php echo $i; ?>"
-                 class="mx-1 px-3 py-2 rounded-md <?php echo ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400';
-                 ?>">
+        <a href="?categoria=<?php echo $category; ?>&page=<?php echo $i; ?>" class="mx-1 px-3 py-2 rounded-md <?php echo ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'; ?>">
             <?php echo $i; ?>
         </a>
     <?php } ?>
