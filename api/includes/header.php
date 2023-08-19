@@ -17,7 +17,7 @@ for ($i = 0; $i < $filas; $i++) {
         </h1>
 
         <form method="GET" class="relative col-span-4 flex">
-            <input type="text" name="search" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
+            <input type="text" name="search" value="<?php echo (isset($_GET['search'])) ? $_GET['search'] : ''; ?>" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
             <button type="submit" class="absolute top-1/2 right-3 transform -translate-y-1/2">
                 <i class="fas fa-search text-gray-600"></i>
             </button>

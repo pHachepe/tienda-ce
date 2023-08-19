@@ -1,8 +1,6 @@
 <?php
 // ToDo: Remove this and use the real product data
-foreach ($productos as &$producto) {
-    $producto['calificacion'] = 0;
-}
+$producto['calificacion'] = rand(1, 5);
 ?>
 <div class="bg-white shadow-md p-4 flex flex-col justify-between h-full">
     <a href="index.php?producto=<?php echo $producto['id']; ?>">
