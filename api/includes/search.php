@@ -25,7 +25,7 @@ if (strlen($search) >= $min_length) {
 <nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
-            <span class="text-gray-600"><?php echo $resultado->num_rows . PRODUCTOS_ENCONTRADOS; ?> para <span class="bg-yellow-200">"<?php echo $search; ?>"</span></span>
+            <span class="text-gray-600"><?php echo count($productos) . PRODUCTOS_ENCONTRADOS; ?> para <span class="bg-yellow-200">"<?php echo $search; ?>"</span></span>
         </li>
     </ol>
 </nav>
