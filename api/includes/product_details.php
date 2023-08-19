@@ -1,5 +1,5 @@
 <?php
-$id = $conn->real_escape_string($_GET['id']);
+$id = $conn->real_escape_string($_GET['producto']);
 $sql = "SELECT * FROM productos WHERE id = $id";
 $resultado = $conn->query($sql);
 $producto = $resultado->fetch_assoc();
@@ -17,9 +17,7 @@ $producto = $resultado->fetch_assoc();
             <p class="text-gray-600 mb-4"><?php echo $producto['descripcion']; ?></p>
             <div class="flex items-center space-x-4 mb-4">
                 <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
+                    <i class="fa-solid fa-cart-arrow-down"></i>
                     Añadir al Carrito
                 </button>
                 <span class="text-green-600 font-semibold">En Stock</span>

@@ -16,7 +16,7 @@ require_once 'config/db.php';
 
         <main class="min-h-screen flex flex-col justify-between">
             <?php
-            if (isset($_GET['id'])) {
+            if (isset($_GET['producto'])) {
                 include 'includes/product_details.php';
             } else if (isset($_GET['categoria'])) {
                 include 'includes/category.php';

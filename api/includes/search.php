@@ -14,6 +14,9 @@ if (strlen($search) >= $min_length) {
         $resultado->data_seek($i);
         $fila = $resultado->fetch_array(MYSQLI_ASSOC);
         $productos[$i] = $fila;
+
+        $productos[$i]['nombre'] = preg_replace('/' . $search . '/i', '<span class="bg-yellow-200">' . strtolower($search) . '</span>', $productos[$i]['nombre']);
+        $productos[$i]['descripcion'] = preg_replace('/' . $search . '/i', '<span class="bg-yellow-200">' . strtolower($search) . '</span>', $productos[$i]['descripcion']);
     }
 }
 ?>
