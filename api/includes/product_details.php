@@ -26,8 +26,8 @@ if (!$producto) {
                 </button>
                 <span class="text-green-600 font-semibold">En Stock</span>
             </div>
-            <p class="text-2xl font-bold mb-4">$99.99</p>
-            <div class="flex items-center mb-4">
+            <p class="text-2xl font-bold mb-4"  style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo MONEDA; ?></p>
+            <div class="flex items-center mb-4" style="view-transition-name: product-rating-<?= $producto['id']; ?>">
                 <i class="fas fa-star text-yellow-400"></i>
                 <p class="text-gray-600 ml-1">4.5 (120 calificaciones)</p>
             </div>

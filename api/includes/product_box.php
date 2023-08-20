@@ -10,7 +10,7 @@ $producto['calificacion'] = rand(1, 5);
             <p class="text-sm text-gray-600 mb-2"><?php echo $producto['descripcion']; ?></p>
         </div>
         <!-- calificacion -->
-        <div class="flex justify-center items-center mb-2">
+        <div class="flex justify-center items-center mb-2" style="view-transition-name: product-rating-<?= $producto['id']; ?>">
             <div class="flex space-x-1">
                 <?php for ($i = 0; $i < $producto['calificacion']; $i++) { ?>
                     <i class="fas fa-star text-yellow-400"></i>
@@ -21,7 +21,7 @@ $producto['calificacion'] = rand(1, 5);
             </div>
         </div>
         <div class="flex justify-center items-center">
-            <p class="text-lg font-semibold text-blue-500"><?php echo $producto['precio']; ?><?php echo MONEDA; ?></p>
+            <p class="text-lg font-semibold text-blue-500" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo MONEDA; ?></p>
         </div>
     </a>
 </div>
