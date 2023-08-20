@@ -10,7 +10,8 @@ CREATE TABLE productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     descripcion TEXT,
-    precio DECIMAL(10, 2)
+    precio DECIMAL(10, 2),
+    stock INT,
 );
 
 -- Tabla de Categorías_Productos
