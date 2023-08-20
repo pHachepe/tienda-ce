@@ -5,6 +5,9 @@
     }
   },
   "routes": [
+    { "src": "/articulo/(?<id>[^/]*)", "dest": "/index.php?producto=$id" },
+    { "src": "/articulo/(?<categoria>[^/]*)", "dest": "/index.php?categoria=$categoria" },
+    { "src": "/busqueda/(?<busqueda>[^/]*)", "dest": "/index.php?search=$busqueda" },
     { "src": "/img/(.*)",  "dest": "https://raw.githubusercontent.com/pHachepe/tienda-ce/main/api/img/$1" },
     { "src": "/(.*)",  "dest": "/api/index.php" }
   ]
