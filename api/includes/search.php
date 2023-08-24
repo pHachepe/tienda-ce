@@ -40,7 +40,6 @@ if (strlen($search) >= $min_length) {
         </div>
     </div>
 <?php } else { ?>
-
     <!-- Products -->
     <div class="content m-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <?php foreach ($productos as $producto) {
