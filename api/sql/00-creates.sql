@@ -15,7 +15,7 @@ CREATE TABLE productos (
     nombre VARCHAR(255),
     descripcion TEXT,
     precio DECIMAL(10, 2),
-    stock INT,
+    stock INT
 );
 
 -- Tabla de Categorías_Productos
