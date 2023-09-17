@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS tienda;
+CREATE DATABASE tienda;
+USE tienda;
+
 -- Tabla de Categorías
 CREATE TABLE categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
