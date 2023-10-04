@@ -1,3 +1,10 @@
 # Vercel
 .vercel
 .env
+
+# Composer
+/vendor/
+/composer.lock
+
+# OS generated files
+.DS_Store
