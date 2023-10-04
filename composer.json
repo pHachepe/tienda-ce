@@ -1,23 +1,24 @@
 {
-    "authors": [
-        {
-            "email": "pehachepe@uoc.edu",
-            "name": "PeHachePe"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Abraham\\Tienda\\": "src/"
-        }
-    },
-    "description": "Tienda Abraham - Comercio Electronico",
-    "name": "abraham/tienda",
-    "require": {
-        "vlucas/phpdotenv": "^5.5"
-    },
-    "scripts": {
-        "start": [
-            "php -S localhost:8000 -t ."
-        ]
+  "authors": [
+    {
+      "email": "pehachepe@uoc.edu",
+      "name": "PeHachePe"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Abraham\\Tienda\\": "src/"
+    }
+  },
+  "description": "Tienda Abraham - Comercio Electronico",
+  "name": "abraham/tienda",
+  "require": {
+    "vlucas/phpdotenv": "^5.5"
+  },
+  "scripts": {
+    "start": [
+      "php -S localhost:8000 -t ./api"
+    ],
+    "tailwind": "npm run build:css"
+  }
 }

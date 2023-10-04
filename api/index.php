@@ -8,7 +8,10 @@ require_once 'config/db.php';
 <head>
     <meta name="view-transition" content="same-origin" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!--
+        <script src="https://cdn.tailwindcss.com"></script>
+    -->
+    <link rel="stylesheet" href="public/css/styles.min.css">
     <script src="public/js/script.js"></script>
 </head>
 
