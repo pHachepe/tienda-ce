@@ -1,5 +1,5 @@
 <?php
-const TITLE = 'InfinityStock';
+const TITLE = 'InfinitySt<span class="text-3xl align-bottom">&infin;</span>ck';
 const HOME = 'Inicio';
 const RECOMENDADOS = 'Recomendados';
 const SEPARATOR = '>';
@@ -15,6 +15,7 @@ const PRODUCTOS_NO_ENCONTRADOS = 'No se han encontrado resultados para ';
 const CATEGORIAS = 'Categorías';
 const NO_PRODUCTS = 'No hay productos en esta categoría';
 const MONEDA = '€';
+const ADD_TO_CART = 'Añadir al carrito';
 const COPYRIGHT = 'InfinityStock™ © 2023. All Rights Reserved.';
 const INSTAGRAM = 'Instagram';
 const FACEBOOK = 'Facebook';
