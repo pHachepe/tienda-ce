@@ -1,6 +1,16 @@
 <?php
 require_once 'includes/constants.php';
 require_once 'config/db.php';
+
+$cache_file = 'cache/' . md5($_SERVER['REQUEST_URI']) . '.html';
+$cache_time = 3600; // Definir el tiempo de caché, en segundos.
+
+if (file_exists($cache_file) && (time() - filemtime($cache_file) < $cache_time)) {
+    // Si el archivo de caché existe y es reciente, muestralo en lugar de crear uno nuevo.
+    echo file_get_contents($cache_file);
+    exit;
+}
+ob_start(); // Iniciar la captura de la salida.
 ?>
 
 <html>
@@ -39,4 +49,8 @@ require_once 'config/db.php';
 <?php
 $resultado->close();
 $conn->close();
+
+$page_content = ob_get_contents(); // Guardar la salida en una variable.
+ob_end_flush(); // Mandar la salida al navegador.
+file_put_contents($cache_file, $page_content); // Guardar la salida en el archivo de caché.
 ?>
