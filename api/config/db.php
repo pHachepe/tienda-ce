@@ -2,8 +2,8 @@
 $isLocal = $_SERVER['SERVER_NAME'] === 'localhost';
 
 if ($isLocal) {
-    require __DIR__ . '/../vendor/autoload.php';
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+    require __DIR__ . '/../../vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
     $dotenv->load();
 }
 
