@@ -13,7 +13,7 @@ if (!$producto) {
     <div class="flex">
         <!-- Image to left -->
         <div class="w-1/2">
-            <img style="view-transition-name: product-image-<?= $producto['id']; ?>" src="../img/default.png" alt="Producto" class="max-w-full h-auto mx-auto">
+            <img style="view-transition-name: product-image-<?= $producto['id']; ?>" src="../public/img/default.png" alt="Producto" class="max-w-full h-auto mx-auto">
         </div>
         <!-- Details to right -->
         <div class="w-1/2 px-8">
