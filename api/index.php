@@ -1,6 +1,6 @@
 <?php
-require_once '../includes/constants.php';
-require_once '../config/db.php';
+require_once 'includes/constants.php';
+require_once 'config/db.php';
 ?>
 
 <html>
@@ -14,23 +14,23 @@ require_once '../config/db.php';
 
 <body>
     <div class="wrapper min-h-screen ">
-        <?php include '../includes/header.php'; ?>
+        <?php include 'includes/header.php'; ?>
 
         <main class="min-h-screen flex flex-col">
             <?php
             if (isset($_GET['producto'])) {
-                include '../includes/product_details.php';
+                include 'includes/product_details.php';
             } else if (isset($_GET['categoria'])) {
-                include '../includes/category.php';
+                include 'includes/category.php';
             } else if (isset($_GET['search'])) {
-                include '../includes/search.php';
+                include 'includes/search.php';
             } else {
-                include '../includes/random_products.php';
+                include 'includes/random_products.php';
             }
             ?>
         </main>
 
-        <?php include '../includes/footer.php'; ?>
+        <?php include 'includes/footer.php'; ?>
     </div>
 </body>
 
