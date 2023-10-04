@@ -61,7 +61,7 @@ function updateCartDropdown() {
     total += precio * cantidad;
     cartContent += `
     <article class="flex space-x-4 border-b p-4">
-        <img src="img/default.png" alt="Producto" class="w-20 h-20 p-2">
+        <img src="public/img/default.png" alt="Producto" class="w-20 h-20 p-2">
         <div class="flex-1 overflow-hidden">
             <h5 class="text-lg truncate">${product.nombre}</h5>
             <h2 class="text-xl font-semibold text-gray-600 truncate">${product.precio}€</h2>

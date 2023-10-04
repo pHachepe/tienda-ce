@@ -9,7 +9,7 @@ require_once 'config/db.php';
     <meta name="view-transition" content="same-origin" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
+    <script src="public/js/script.js"></script>
 </head>
 
 <body>
