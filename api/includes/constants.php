@@ -1,5 +1,5 @@
 <?php
-const TITLE = 'InfinitySt<span class="text-3xl align-bottom">&infin;</span>ck';
+const TITLE = 'InfinitySt<span class="text-3xl" style="vertical-align: -8%;">&infin;</span>ck';
 const HOME = 'Inicio';
 const RECOMENDADOS = 'Recomendados';
 const SEPARATOR = '>';
