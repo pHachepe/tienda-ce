@@ -16,6 +16,7 @@ const CATEGORIAS = 'Categorías';
 const NO_PRODUCTS = 'No hay productos en esta categoría';
 const MONEDA = '€';
 const ADD_TO_CART = 'Añadir al carrito';
+const CHECKOUT = 'Pagar';
 const COPYRIGHT = 'InfinityStock™ © 2023. All Rights Reserved.';
 const INSTAGRAM = 'Instagram';
 const FACEBOOK = 'Facebook';

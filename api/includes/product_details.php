@@ -19,14 +19,12 @@ if (!$producto) {
         <div class="w-1/2 px-8">
             <h1 class="text-2xl font-semibold mb-4"><?php echo $producto['nombre']; ?></h1>
             <p class="text-gray-600 mb-4"><?php echo $producto['descripcion']; ?></p>
-            <form method="GET" class="flex items-center space-x-4 mb-4">
-                <input type="hidden" name="id" value="<?php echo $producto['id']; ?>">
-                <input type="hidden" name="action" value="add-to-cart">
+            <form method="POST" id="productForm" data-product='<?php echo json_encode($producto); ?>'>
                 <label for="cantidad" class="font-semibold text-gray-600">Cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="<?php echo $producto['stock']; ?>" class="border border-gray-300 px-4 py-2 rounded-lg w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                <button style="view-transition-name: product-add-to-cart-<?= $producto['id']; ?>" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 <?= ($producto['stock'] > 0) ? '' : 'cursor-not-allowed opacity-50 disabled'; ?>">
-                    <i class="fa-solid fa-cart-arrow-down"></i>
-                    Añadir al Carrito
+                <button onclick="addToCart(event)" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 <?= ($producto['stock'] > 0) ? '' : 'cursor-not-allowed opacity-50 disabled'; ?>">
+                    <i id="cart-icon-add" class="fa-solid fa-cart-arrow-down"></i>
+                    <?= ADD_TO_CART; ?>
                 </button>
 
                 <?= ($producto['stock'] > 0) ? '<p class="text-green-500 font-semibold">En Stock</p>' : '<p class="text-red-500 font-semibold">Sin Stock</p>'; ?>

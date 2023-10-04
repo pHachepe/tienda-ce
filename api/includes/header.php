@@ -2,54 +2,55 @@
 $sql = "SELECT * FROM categorias";
 $resultado = $conn->query($sql);
 $filas = $resultado->num_rows;
-$categorias = array();
+$categories = array();
 for ($i = 0; $i < $filas; $i++) {
     $resultado->data_seek($i);
     $fila = $resultado->fetch_array(MYSQLI_ASSOC);
-    $categorias[$i] = $fila;
+    $categories[$i] = $fila;
 }
 ?>
 <nav class="bg-blue-500 text-white">
-    <div class="container mx-auto py-4 grid grid-cols-6 gap-4 items-center">
-        <!-- titulo h1 con link a index.php -->
+    <div class="container mx-auto py-4 grid grid-cols-6 items-center">
         <h1 class="col-span-1 text-2xl font-semibold">
             <a href="index.php"><?php echo TITLE; ?></a>
         </h1>
 
-        <form method="GET" class="relative col-span-4 flex">
+        <form method="GET" class="relative col-span-4 flex pt-2 mt-1">
             <input type="text" name="search" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
             <button type="submit" class="absolute top-1/2 right-3 transform -translate-y-1/2">
-                <i class="fas fa-search text-gray-600"></i>
+                <i class="fas fa-search text-gray-600 pt-2"></i>
             </button>
         </form>
 
-        <div class="col-span-1 flex justify-end items-center space-x-4">
-            <!-- Dropdown Carrito -->
-            <div class="relative group">
-                <button class="hover:text-gray-300 focus:outline-none">
-                    <i class="fas fa-shopping-cart"></i> <?php echo CESTA; ?>
+        <div class="col-span-1 flex ml-2">
+            <!-- Dropdown Cart -->
+            <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
+                <button class="flex items-center">
+                    <i id="cart-icon" class="fas fa-shopping-cart relative z-10"></i>
+                    <span id="cart-count" class="absolute top-0 left-4 bg-red-500 text-white rounded-full px-1 text-xs z-20">0</span>
+                    <span class="ml-2"><?php echo CESTA; ?></span>
                 </button>
-                <div id="carrito-dropdown" class="absolute top-full w-64 -left-24 group-hover:block z-10 hidden">
-                    <?php include 'includes/carrito.php'; ?>
+                <div id="cart-dropdown" class="bg-white absolute top-full w-96 -left-40 group-hover:block z-10 hidden rounded-t-lg">
+                    <?php include 'cart.php'; ?>
                 </div>
             </div>
-            <!-- Fin del Dropdown Carrito -->
-            <!-- Dropdown de Mi Cuenta -->
-            <div class="relative group">
-                <button class="hover:text-gray-300 focus:outline-none">
+            <!-- End Dropdown Cart -->
+            <!-- Dropdown My Account -->
+            <div class="relative group hover:bg-white  hover:text-blue-500 rounded-t-lg px-2 py-3">
+                <button>
                     <i class="fas fa-user"></i> <?php echo MI_CUENTA; ?>
                 </button>
-                <div class="absolute top-full w-64 -left-24 group-hover:block hidden">
+                <div class="bg-white absolute top-full w-60 -left-24 group-hover:block hidden rounded-t-lg">
                     <?php include 'form_login.php'; ?>
                 </div>
             </div>
-            <!-- Fin del Dropdown de Mi Cuenta -->
+            <!-- End Dropdown My Account -->
         </div>
     </div>
     <div class="container mx-auto py-2">
         <ul class="flex space-x-4 justify-between">
-            <?php foreach ($categorias as $categoria) { ?>
-                <li><a href="?categoria=<?php echo $categoria['nombre']; ?>" class="hover:text-gray-300"><i class="fas <?php echo $categoria['icono']; ?>"></i> <?php echo $categoria['nombre']; ?></a></li>
+            <?php foreach ($categories as $category) { ?>
+                <li><a href="?categoria=<?php echo $category['nombre']; ?>" class="hover:text-gray-300"><i class="fas <?php echo $category['icono']; ?>"></i> <?php echo $category['nombre']; ?></a></li>
             <?php } ?>
         </ul>
     </div>
