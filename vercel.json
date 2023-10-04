@@ -1,12 +1,17 @@
 {
   "builds": [
     { "src": "/api/index.php", "use": "vercel-php@0.6.0" },
+    { "src": "/api/favicon.ico", "use": "@vercel/static" },
     { "src": "/api/public/**", "use": "@vercel/static" }
   ],
   "routes": [
     {
       "src": "/public/(.*)",
       "dest": "/api/public/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/api/favicon.ico"
     },
     {
       "src": "/(.*)",
