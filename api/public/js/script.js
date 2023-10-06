@@ -71,12 +71,12 @@ function updateCartDropdown() {
     let cantidad = +product.cantidad;
     total += precio * cantidad;
     cartContent += `
-    <article class="flex space-x-6 border-b py-2">
+    <article class="flex space-x-4 border-b p-2">
         <img src="public/img/default.png" alt="Producto" class="w-20 h-20 p-2">
         <div class="flex-1 overflow-hidden">
             <h5 class="text-lg truncate mb-2">${product.nombre}</h5>
-            <div class="space-x-8 flex">
-            <h2 class="text-xl font-semibold text-gray-600 truncate">${product.precio}€</h2>
+            <div class="flex justify-between">
+              <h2 class="text-xl font-semibold text-gray-600 truncate">${product.precio}€</h2>
               <input type="number" name="cantidad" value="${product.cantidad}" min="1" class="border border-gray-300 px-2 py-1 rounded-lg w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" onchange="updateProductQuantity(${product.id}, this.value)" />
               <button class="text-red-500 hover:text-red-600 focus:outline-none remove-from-cart" data-product-id="${product.id}" onclick="removeFromCart(${product.id})">
                 <i class="fas fa-trash"></i>
