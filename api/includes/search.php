@@ -1,10 +1,6 @@
 <?php
 $productos = array();
 $min_length = 3;
-if (!isset($_GET['search']) || empty($_GET['search'])) {
-    header('Location: index.php');
-}
-
 $search = $conn->real_escape_string($_GET['search']);
 
 if (strlen($search) >= $min_length) {
