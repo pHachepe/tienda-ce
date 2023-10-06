@@ -30,20 +30,22 @@ for ($i = 0; $i < $filas; $i++) {
                     <span id="cart-count" class="absolute top-0 left-4 bg-red-500 text-white rounded-full px-1 text-xs z-20">0</span>
                     <span class="ml-2"><?php echo BASKET; ?></span>
                 </button>
-                <div id="cart-dropdown" class="bg-white absolute top-full w-96 -left-40 group-hover:block z-10 hidden rounded-t-lg">
-                    <div id="cart-body" class="p-4 bg-white text-black shadow-md rounded-md">
+                <div id="cart-dropdown" class="bg-white absolute z-10 top-full w-96 -left-40 group-hover:block hidden rounded-t-lg">
+                    <div id="cart-body" class="p-4 text-black shadow-md rounded-md">
                         <?php include 'cart.php'; ?>
                     </div>
                 </div>
             </div>
             <!-- End Dropdown Cart -->
             <!-- Dropdown My Account -->
-            <div class="relative group hover:bg-white  hover:text-blue-500 rounded-t-lg px-2 py-3">
+            <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
                     <i class="fas fa-user"></i> <?php echo MY_ACCOUNT; ?>
                 </button>
-                <div class="bg-white absolute top-full w-60 -left-24 group-hover:block hidden rounded-t-lg">
-                    <?php include 'form_login.php'; ?>
+                <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
+                    <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
+                        <?php include 'form-login.php'; ?>
+                    </div>
                 </div>
             </div>
             <!-- End Dropdown My Account -->
