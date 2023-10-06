@@ -71,7 +71,7 @@ function updateCartDropdown() {
     let cantidad = +product.cantidad;
     total += precio * cantidad;
     cartContent += `
-    <article class="flex space-x-4 border-b p-2">
+    <article class="flex space-x-4 border-b px-2">
         <img src="public/img/default.png" alt="Producto" class="w-20 h-20 p-2">
         <div class="flex-1 overflow-hidden">
             <h5 class="text-lg truncate mb-2">${product.nombre}</h5>
@@ -120,7 +120,7 @@ function removeFromCart(productId) {
   const productElement = document.querySelector(`[data-product-id="${productId}"]`).closest('article');
 
   // Se añade una clase para que se ejecute la animación de eliminación
-  productElement.classList.add('animate-pulse', 'bg-red-100', 'border-red-500', 'text-red-900');
+  productElement.classList.add('animate-pulse', 'bg-red-100', 'border-red-500', 'text-red-900', 'rounded-lg');
 
   // Cuando la transición se complete se elimina el producto del carrito
   setTimeout(() => {

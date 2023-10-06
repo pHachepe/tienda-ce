@@ -31,7 +31,7 @@ for ($i = 0; $i < $filas; $i++) {
                     <span class="ml-2"><?php echo BASKET; ?></span>
                 </button>
                 <div id="cart-dropdown" class="bg-white absolute top-full w-96 -left-40 group-hover:block z-10 hidden rounded-t-lg">
-                    <div id="cart-body" class="px-4 pb-4 bg-white mt-2 text-black shadow-md rounded-md">
+                    <div id="cart-body" class="p-4 bg-white text-black shadow-md rounded-md">
                         <?php include 'cart.php'; ?>
                     </div>
                 </div>
