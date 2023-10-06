@@ -11,5 +11,5 @@
         </span>
         <input name="password" type="password" class="rounded-r-lg border block flex-1 min-w-0 w-full text-sm border-gray-300 p-3" placeholder="<?= PASSWORD; ?>">
     </div>
-    <button type="button" onclick="handleLogin()" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"><?php echo LOGIN; ?></button>
+    <button class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"><?php echo LOGIN; ?></button>
 </form>

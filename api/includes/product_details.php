@@ -22,7 +22,7 @@ if (!$producto) {
             <form method="POST" id="productForm" data-product='<?= json_encode($producto); ?>'>
                 <label for="cantidad" class="font-semibold text-gray-600">Cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="<?= $producto['stock']; ?>" class="border border-gray-300 px-4 py-2 rounded-lg w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                <button onclick="addToCart(event)" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 <?= ($producto['stock'] > 0) ? '' : 'cursor-not-allowed opacity-50 disabled'; ?>">
+                <button onclick="addToCart()" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 <?= ($producto['stock'] > 0) ? '' : 'cursor-not-allowed opacity-50 disabled'; ?>">
                     <i id="cart-icon-add" class="fa-solid fa-cart-arrow-down"></i>
                     <?= ADD_TO_CART; ?>
                 </button>

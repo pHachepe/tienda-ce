@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   initializeCart();
   updateCartDropdown();
+  setupLoginFormListener();
+
   if (document.startViewTransition) {
     window.navigation.addEventListener('navigate', (event) => {
       const toUrl = new URL(event.destination.url)
@@ -91,9 +93,7 @@ function updateCartDropdown() {
   document.querySelector("#total").textContent = `Total: ${total.toFixed(2)} €`;
 }
 
-function addToCart(event) {
-  event.preventDefault();
-
+function addToCart() {
   const form = document.querySelector('#productForm');
   const formData = JSON.parse(form.getAttribute('data-product'));
   const cantidad = +document.querySelector('#cantidad').value;
@@ -154,11 +154,17 @@ function animateCart() {
     , 600);
 }
 
-function handleLogin() {
+function setupLoginFormListener() {
   const loginForm = document.getElementById("loginForm");
-  const loginMessage = document.getElementById("loginMessage");
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    handleLogin(event);
+  });
+}
 
-  const formData = new FormData(loginForm);
+function handleLogin(event) {
+  const formData = new FormData(event.target);
+  const loginMessage = document.getElementById("loginMessage");
 
   fetch('login.php', {
     method: 'POST',
@@ -166,8 +172,6 @@ function handleLogin() {
   })
     .then(response => response.json())
     .then(responseJson => {
-      loginMessage.textContent = responseJson.msg;
-
       if (responseJson.success) {
         loginMessage.classList.add('bg-green-500');
         loginMessage.classList.remove('bg-red-500');
@@ -176,7 +180,7 @@ function handleLogin() {
         loginMessage.classList.add('bg-red-500');
         loginMessage.classList.remove('bg-green-500');
       }
-
+      loginMessage.textContent = responseJson.msg;
       loginMessage.classList.remove('opacity-0');
       setTimeout(() => {
         loginMessage.classList.add('opacity-0');
