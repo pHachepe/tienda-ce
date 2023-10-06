@@ -14,6 +14,10 @@
       "dest": "/api/favicon.ico"
     },
     {
+      "src": "/login.php",
+      "dest": "/api/includes/login.php"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

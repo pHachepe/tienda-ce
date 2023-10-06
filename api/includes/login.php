@@ -1,7 +1,7 @@
 <?php
 session_start();
-include '../../config/db.php';
-include '../../includes/constants.php';
+include '../config/db.php';
+include 'constants.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
