@@ -1,7 +1,7 @@
 <div id="cart-body" class="px-4 pb-4 bg-white mt-2 text-gray-700 shadow-md rounded-md">
     <section id="cart-empty" class="flex flex-col items-center justify-center space-y-4 hidden p-16">
         <i class="fas fa-shopping-cart text-gray-400 text-6xl"></i>
-        <span class="text-gray-500">Tu carrito está vacío.</span>
+        <span class="text-gray-500"><?= CART_EMPTY; ?></span>
     </section>
 
     <section id="cart-articles">

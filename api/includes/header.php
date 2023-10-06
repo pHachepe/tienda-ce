@@ -16,7 +16,7 @@ for ($i = 0; $i < $filas; $i++) {
         </h1>
 
         <form method="GET" class="relative col-span-4 flex pt-2 mt-1">
-            <input type="text" name="search" placeholder="<?php echo BUSCAR ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
+            <input type="text" name="search" placeholder="<?php echo SEARCH ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
             <button type="submit" class="absolute top-1/2 right-3 transform -translate-y-1/2">
                 <i class="fas fa-search text-gray-600 pt-2"></i>
             </button>
@@ -28,7 +28,7 @@ for ($i = 0; $i < $filas; $i++) {
                 <button class="flex items-center">
                     <i id="cart-icon" class="fas fa-shopping-cart relative z-10"></i>
                     <span id="cart-count" class="absolute top-0 left-4 bg-red-500 text-white rounded-full px-1 text-xs z-20">0</span>
-                    <span class="ml-2"><?php echo CESTA; ?></span>
+                    <span class="ml-2"><?php echo BASKET; ?></span>
                 </button>
                 <div id="cart-dropdown" class="bg-white absolute top-full w-96 -left-40 group-hover:block z-10 hidden rounded-t-lg">
                     <?php include 'cart.php'; ?>
@@ -38,7 +38,7 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown My Account -->
             <div class="relative group hover:bg-white  hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
-                    <i class="fas fa-user"></i> <?php echo MI_CUENTA; ?>
+                    <i class="fas fa-user"></i> <?php echo MY_ACCOUNT; ?>
                 </button>
                 <div class="bg-white absolute top-full w-60 -left-24 group-hover:block hidden rounded-t-lg">
                     <?php include 'form_login.php'; ?>

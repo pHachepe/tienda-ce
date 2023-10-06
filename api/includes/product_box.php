@@ -21,7 +21,7 @@ $producto['calificacion'] = rand(1, 5);
             </div>
         </div>
         <div class="flex justify-center items-center">
-            <p class="text-lg font-semibold text-blue-500" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo MONEDA; ?></p>
+            <p class="text-lg font-semibold text-blue-500" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo CURRENCY; ?></p>
         </div>
     </a>
 </div>

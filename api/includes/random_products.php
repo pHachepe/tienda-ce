@@ -18,7 +18,7 @@ for ($i = 0; $i < $filas; $i++) {
             <span class="mx-2 text-gray-500"><?php echo SEPARATOR; ?></span>
         </li>
         <li class="flex items-center">
-            <span class="text-gray-600"><?php echo RECOMENDADOS; ?></span>
+            <span class="text-gray-600"><?php echo RECOMMENDED; ?></span>
         </li>
     </ol>
 </nav>

@@ -25,7 +25,7 @@ if (strlen($search) >= $min_length) {
 <nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
-            <span class="text-gray-600"><?php echo count($productos) . PRODUCTOS_ENCONTRADOS; ?> para <span class="bg-yellow-200">"<?php echo $search; ?>"</span></span>
+            <span class="text-gray-600"><?php echo count($productos) . PRODUCTS_FOUND; ?> para <span class="bg-yellow-200">"<?php echo $search; ?>"</span></span>
         </li>
     </ol>
 </nav>
@@ -35,7 +35,7 @@ if (strlen($search) >= $min_length) {
     <div class="flex justify-center items-center h-screen">
         <div>
             <h2 class="text-lg font-semibold text-gray-800">
-                <?php echo (strlen($search) <= $min_length) ? sprintf(MINIMO_CARACTERES, $min_length) : PRODUCTOS_NO_ENCONTRADOS . '"' . $search . '"'; ?>
+                <?php echo (strlen($search) <= $min_length) ? sprintf(MIN_CHARS, $min_length) : PRODUCTS_NOT_FOUND . '"' . $search . '"'; ?>
             </h2>
         </div>
     </div>

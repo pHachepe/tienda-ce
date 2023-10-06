@@ -29,7 +29,7 @@ if (!$producto) {
 
                 <?= ($producto['stock'] > 0) ? '<p class="text-green-500 font-semibold">En Stock</p>' : '<p class="text-red-500 font-semibold">Sin Stock</p>'; ?>
             </form>
-            <p class="text-2xl font-bold mb-4" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo MONEDA; ?></p>
+            <p class="text-2xl font-bold mb-4" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo CURRENCY; ?></p>
             <div class="flex items-center mb-4" style="view-transition-name: product-rating-<?= $producto['id']; ?>">
                 <i class="fas fa-star text-yellow-400"></i>
                 <p class="text-gray-600 ml-1">4.5 (120 calificaciones)</p>
