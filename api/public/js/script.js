@@ -49,7 +49,18 @@ function setCart(cart) {
 function updateCartDropdown() {
   animateCart();
   const cart = getCart();
-  toggleCheckoutButton(cart.length > 0);
+
+  const cartEmpty = document.querySelector('#cart-empty');
+  const cartArticles = document.querySelector('#cart-articles');
+
+  if (cart.length === 0) {
+    cartEmpty.classList.remove('hidden');
+    cartArticles.classList.add('hidden');
+  } else {
+    cartEmpty.classList.add('hidden');
+    cartArticles.classList.remove('hidden');
+  }
+
   let cartContent = '';
   let cartCount = 0;
   let total = 0;
@@ -106,10 +117,19 @@ function addToCart(event) {
 }
 
 function removeFromCart(productId) {
-  let cart = getCart().filter(product => +product.id !== productId);
-  setCart(cart);
-  updateCartDropdown();
+  const productElement = document.querySelector(`[data-product-id="${productId}"]`).closest('article');
+
+  // Se añade una clase para que se ejecute la animación de eliminación
+  productElement.classList.add('animate-pulse', 'bg-red-100', 'border-red-500', 'text-red-900');
+
+  // Cuando la transición se complete se elimina el producto del carrito
+  setTimeout(() => {
+    let cart = getCart().filter(product => +product.id !== productId);
+    setCart(cart);
+    updateCartDropdown();
+  }, 1000);
 }
+
 
 function updateProductQuantity(productId, newQuantity) {
   let cart = getCart();
@@ -122,29 +142,14 @@ function updateProductQuantity(productId, newQuantity) {
   }
 }
 
-function toggleCheckoutButton(enable) {
-  const checkoutBtn = document.querySelector("#checkout-btn");
-  const classesToAdd = enable ? ['bg-blue-500', 'cursor-pointer', 'hover:bg-blue-600'] : ['bg-gray-300', 'cursor-not-allowed'];
-  const classesToRemove = enable ? ['bg-gray-300', 'cursor-not-allowed'] : ['bg-blue-500', 'cursor-pointer', 'hover:bg-blue-600'];
-
-  classesToAdd.forEach(className => checkoutBtn.classList.add(className));
-  classesToRemove.forEach(className => checkoutBtn.classList.remove(className));
-
-  if (enable) {
-    checkoutBtn.removeAttribute('disabled');
-  } else {
-    checkoutBtn.setAttribute('disabled', 'disabled');
-  }
-}
-
 function animateCart() {
   document.querySelector("#cart-icon").classList.add('animate-bounce');
   document.querySelector("#cart-count").classList.add('animate-ping');
-  document.querySelector("#total").classList.add('animate-pulse');
+  document.querySelector("#total").classList.add('animate-ping');
   setTimeout(() => {
     document.querySelector("#cart-icon").classList.remove('animate-bounce');
     document.querySelector("#cart-count").classList.remove('animate-ping')
-    document.querySelector("#total").classList.remove('animate-pulse');
+    document.querySelector("#total").classList.remove('animate-ping');
   }
-    , 500);
+    , 600);
 }
