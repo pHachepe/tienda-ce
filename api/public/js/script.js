@@ -153,3 +153,36 @@ function animateCart() {
   }
     , 600);
 }
+
+function handleLogin() {
+  const loginForm = document.getElementById("loginForm");
+  const loginMessage = document.getElementById("loginMessage");
+
+  const formData = new FormData(loginForm);
+
+  fetch('../includes/login.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(responseJson => {
+      loginMessage.textContent = responseJson.msg;
+
+      if (responseJson.success) {
+        loginMessage.classList.add('bg-green-500');
+        loginMessage.classList.remove('bg-red-500');
+        location.reload();
+      } else {
+        loginMessage.classList.add('bg-red-500');
+        loginMessage.classList.remove('bg-green-500');
+      }
+
+      loginMessage.classList.remove('opacity-0');
+      setTimeout(() => {
+        loginMessage.classList.add('opacity-0');
+      }, 3000);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
