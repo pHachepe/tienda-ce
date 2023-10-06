@@ -3,11 +3,11 @@
 $producto['calificacion'] = rand(1, 5);
 ?>
 <div class="bg-white shadow-md p-4 flex flex-col justify-between h-full">
-    <a href="index.php?producto=<?php echo $producto['id']; ?>">
+    <a href="index.php?producto=<?= $producto['id']; ?>">
         <div>
-            <img style="view-transition-name: product-image-<?= $producto['id']; ?>" src="public/img/<?php echo "default.png"; ?>" alt="Producto" class="w-full h-auto rounded-md mb-2">
-            <h2 class="text-lg font-semibold text-gray-800"><?php echo $producto['nombre']; ?></h2>
-            <p class="text-sm text-gray-600 mb-2"><?php echo $producto['descripcion']; ?></p>
+            <img style="view-transition-name: product-image-<?= $producto['id']; ?>" src="public/img/<?= "default.png"; ?>" alt="Producto" class="w-full h-auto rounded-md mb-2">
+            <h2 class="text-lg font-semibold text-gray-800"><?= $producto['nombre']; ?></h2>
+            <p class="text-sm text-gray-600 mb-2"><?= $producto['descripcion']; ?></p>
         </div>
         <!-- calificacion -->
         <div class="flex justify-center items-center mb-2" style="view-transition-name: product-rating-<?= $producto['id']; ?>">
@@ -21,7 +21,7 @@ $producto['calificacion'] = rand(1, 5);
             </div>
         </div>
         <div class="flex justify-center items-center">
-            <p class="text-lg font-semibold text-blue-500" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?php echo $producto['precio']; ?><?php echo CURRENCY; ?></p>
+            <p class="text-lg font-semibold text-blue-500" style="view-transition-name: product-price-<?= $producto['id']; ?>"><?= $producto['precio']; ?><?= CURRENCY; ?></p>
         </div>
     </a>
 </div>

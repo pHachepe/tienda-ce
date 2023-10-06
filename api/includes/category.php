@@ -45,11 +45,11 @@ if (isset($_GET['categoria'])) {
 <nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
-            <a href="index.php" class="text-blue-500"><?php echo HOME; ?></a>
-            <span class="mx-2 text-gray-500"><?php echo SEPARATOR; ?></span>
+            <a href="index.php" class="text-blue-500"><?= HOME; ?></a>
+            <span class="mx-2 text-gray-500"><?= SEPARATOR; ?></span>
         </li>
         <li class="flex items-center">
-            <span class="text-gray-600"><?php echo $category; ?></span>
+            <span class="text-gray-600"><?= $category; ?></span>
         </li>
     </ol>
 </nav>
@@ -58,7 +58,7 @@ if (isset($_GET['categoria'])) {
 <?php if ($filas == 0) { ?>
     <div class="flex justify-center items-center h-screen">
         <div>
-            <h2 class="text-lg font-semibold text-gray-800"><?php echo NO_PRODUCTS; ?></h2>
+            <h2 class="text-lg font-semibold text-gray-800"><?= NO_PRODUCTS; ?></h2>
         </div>
     </div>
     <!-- Products -->
@@ -73,8 +73,8 @@ if (isset($_GET['categoria'])) {
 <!-- Pagination -->
 <div class="flex justify-center items-center mb-6">
     <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-        <a href="?categoria=<?php echo $category; ?>&page=<?php echo $i; ?>" class="mx-1 px-3 py-2 rounded-md <?php echo ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'; ?>">
-            <?php echo $i; ?>
+        <a href="?categoria=<?= $category; ?>&page=<?= $i; ?>" class="mx-1 px-3 py-2 rounded-md <?= ($page == $i) ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'; ?>">
+            <?= $i; ?>
         </a>
     <?php } ?>
 </div>

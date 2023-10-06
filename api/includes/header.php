@@ -12,11 +12,11 @@ for ($i = 0; $i < $filas; $i++) {
 <nav class="bg-blue-500 text-white">
     <div class="container mx-auto py-4 grid grid-cols-6 items-center">
         <h1 class="col-span-1 text-2xl font-semibold">
-            <a href="index.php"><?php echo TITLE; ?></a>
+            <a href="index.php"><?= TITLE; ?></a>
         </h1>
 
         <form method="GET" class="relative col-span-4 flex pt-2 mt-1">
-            <input type="text" name="search" placeholder="<?php echo SEARCH ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
+            <input type="text" name="search" placeholder="<?= SEARCH ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
             <button type="submit" class="absolute top-1/2 right-3 transform -translate-y-1/2">
                 <i class="fas fa-search text-gray-600 pt-2"></i>
             </button>
@@ -28,7 +28,7 @@ for ($i = 0; $i < $filas; $i++) {
                 <button class="flex items-center">
                     <i id="cart-icon" class="fas fa-shopping-cart relative z-10"></i>
                     <span id="cart-count" class="absolute top-0 left-4 bg-red-500 text-white rounded-full px-1 text-xs z-20">0</span>
-                    <span class="ml-2"><?php echo BASKET; ?></span>
+                    <span class="ml-2"><?= BASKET; ?></span>
                 </button>
                 <div id="cart-dropdown" class="bg-white absolute z-10 top-full w-96 -left-40 group-hover:block hidden rounded-t-lg">
                     <div id="cart-body" class="p-4 text-black shadow-md rounded-md">
@@ -40,7 +40,7 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown My Account -->
             <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
-                    <i class="fas fa-user"></i> <?php echo MY_ACCOUNT; ?>
+                    <i class="fas fa-user"></i> <?= MY_ACCOUNT; ?>
                 </button>
                 <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
                     <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
@@ -54,7 +54,7 @@ for ($i = 0; $i < $filas; $i++) {
     <div class="container mx-auto py-2">
         <ul class="flex space-x-4 justify-between">
             <?php foreach ($categories as $category) { ?>
-                <li><a href="?categoria=<?php echo $category['nombre']; ?>" class="hover:text-gray-300"><i class="fas <?php echo $category['icono']; ?>"></i> <?php echo $category['nombre']; ?></a></li>
+                <li><a href="?categoria=<?= $category['nombre']; ?>" class="hover:text-gray-300"><i class="fas <?= $category['icono']; ?>"></i> <?= $category['nombre']; ?></a></li>
             <?php } ?>
         </ul>
     </div>
