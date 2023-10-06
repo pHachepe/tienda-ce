@@ -160,7 +160,7 @@ function handleLogin() {
 
   const formData = new FormData(loginForm);
 
-  fetch('../php/login.php', {
+  fetch('login.php', {
     method: 'POST',
     body: formData
   })
