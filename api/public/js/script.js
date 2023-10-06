@@ -66,9 +66,9 @@ function updateCartDropdown() {
   let total = 0;
 
   cart.forEach(product => {
-    cartCount += +product.cantidad;
     let precio = parseFloat(product.precio);
     let cantidad = +product.cantidad;
+    cartCount += cantidad;
     total += precio * cantidad;
     cartContent += `
     <article class="flex space-x-4 border-b px-2">
@@ -136,7 +136,7 @@ function updateProductQuantity(productId, newQuantity) {
   let productToUpdate = cart.find(product => +product.id === productId);
 
   if (productToUpdate) {
-    productToUpdate.cantidad = newQuantity;
+    productToUpdate.cantidad = +newQuantity;
     setCart(cart);
     updateCartDropdown();
   }
