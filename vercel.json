@@ -1,22 +1,4 @@
 {
-  "routes": [
-    {
-      "src": "/public/(.*)",
-      "dest": "/api/public/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/api/favicon.ico"
-    },
-    {
-      "src": "/login.php",
-      "dest": "/api/login.php"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ],
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.6.0"
