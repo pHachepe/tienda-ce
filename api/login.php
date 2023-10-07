@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo json_encode(array(
             "success" => false,
-            "msg" => ERROR_SERVER
+            "msg" => ERROR_DB
         ));
     }
     $stmt->close();
@@ -39,6 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(array(
         "success" => false,
-        "msg" => ERROR_SERVER
+        "msg" => ERROR_INVALID_REQUEST
     ));
 }
