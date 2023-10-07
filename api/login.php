@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["user"] = $user;
             echo json_encode(array(
                 "success" => true,
-                "msg" => SUCCESS
+                "msg" => SUCCESS,
+                "Session" => json_encode($_SESSION)
             ));
         } else {
             echo json_encode(array(
