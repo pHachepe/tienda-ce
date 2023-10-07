@@ -1,6 +1,17 @@
 <?php
 require_once 'includes/constants.php';
 require_once 'config/db.php';
+session_start();
+
+$params = $_GET;
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($params['logout']);
+    header('Location: index.php?' . http_build_query($params));
+} elseif (isset($_GET['login'])) {
+    unset($params['login']);
+    header('Location: index.php?' . http_build_query($params));
+}
 ?>
 
 <html>

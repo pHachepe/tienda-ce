@@ -6,30 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.startViewTransition) {
     window.navigation.addEventListener('navigate', (event) => {
       const toUrl = new URL(event.destination.url)
+      const params = new URLSearchParams(toUrl.search)
 
-      // si no es una navegación en el mismo dominio (origen) no intercepta
-      if (location.origin !== toUrl.origin) return
+      // si incluye el parámetro ?login o ?logout no intercepta la navegación para que se recargue la página completa
+      if (params.has('login') || params.has('logout')) {
+        event.continue();
+      } else {
+        // si no es una navegación en el mismo dominio (origen) no intercepta
+        if (location.origin !== toUrl.origin) return
 
-      // si es una navegación en el mismo dominio (origen) intercepta
-      event.intercept({
-        async handler() {
-          // carga la página de destino utilizando un fetch para obtener el HTML
-          const response = await fetch(toUrl)
-          const text = await response.text()
-          // extrae el contenido del main del HTML usando una expresión regular
-          const [, data] = text.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)
+        // si es una navegación en el mismo dominio (origen) intercepta
+        event.intercept({
+          async handler() {
+            // carga la página de destino utilizando un fetch para obtener el HTML
+            const response = await fetch(toUrl)
+            const text = await response.text()
+            // extrae el contenido del main del HTML usando una expresión regular
+            const [, data] = text.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)
 
-          document.startViewTransition(() => {
-            const main = document.querySelector('main')
-            main.innerHTML = data
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
+            document.startViewTransition(() => {
+              const main = document.querySelector('main')
+              main.innerHTML = data
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
 
-          })
-        }
-      })
+            })
+          }
+        })
+      }
     })
   }
 });
@@ -156,6 +162,7 @@ function animateCart() {
 
 function setupLoginFormListener() {
   const loginForm = document.getElementById("loginForm");
+  if (!loginForm) return;
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
     handleLogin(event);
@@ -175,7 +182,9 @@ function handleLogin(event) {
       if (responseJson.success) {
         loginMessage.classList.add('bg-green-500');
         loginMessage.classList.remove('bg-red-500');
-        location.reload();
+        const url = new URL(location.href);
+        url.searchParams.set('login', true);
+        window.location.href = url;
       } else {
         loginMessage.classList.add('bg-red-500');
         loginMessage.classList.remove('bg-green-500');

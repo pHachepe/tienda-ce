@@ -40,13 +40,32 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown My Account -->
             <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
-                    <i class="fas fa-user"></i> <?= MY_ACCOUNT; ?>
+                    <i class="fas fa-user"></i> <?= isset($_SESSION['loggedin']) ? $_SESSION['user']['nombre'] : MY_ACCOUNT; ?>
                 </button>
-                <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
-                    <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
-                        <?php include 'form-login.php'; ?>
+
+                <?php
+                if (isset($_SESSION['loggedin'])) {
+                ?>
+                    <div id="user-dropdown" class="bg-white absolute z-10 top-full -left-8 w-40 group-hover:block hidden rounded-t-lg">
+                        <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col p-5 space-y-3">
+                            <a href="profile.php" class="hover:text-blue-500"><i class="fas fa-gear"></i> <?= PROFILE; ?></a>
+                            <a href="orders.php" class="hover:text-blue-500"><i class="fas fa-box-archive"></i> <?= ORDERS; ?></a>
+                            <a href="payments.php" class="hover:text-blue-500"><i class="fas fa-credit-card"></i> <?= PAYMENTS; ?></a>
+                            <a href="addresses.php" class="hover:text-blue-500"><i class="fas fa-map-marker-alt"></i> <?= ADDRESSES; ?></a>
+                            <a href="?logout" class="hover:text-blue-500"><i class="fas fa-sign-out-alt"></i> <?= LOGOUT; ?></a>
+                        </div>
                     </div>
-                </div>
+                <?php
+                } else {
+                ?>
+                    <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
+                        <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
+                            <?php include 'form-login.php'; ?>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <!-- End Dropdown My Account -->
         </div>
