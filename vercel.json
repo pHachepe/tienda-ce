@@ -20,12 +20,6 @@
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.6.0"
-    },
-    "api/public/favicon.ico": {
-      "runtime": "@vercel/static"
-    },
-    "api/public/**": {
-      "runtime": "@vercel/static"
     }
   }
 }
