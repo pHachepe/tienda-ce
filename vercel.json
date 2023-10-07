@@ -1,6 +1,5 @@
 {
   "builds": [
-    { "src": "/api/*.php", "use": "vercel-php@0.6.0" },
     { "src": "/api/favicon.ico", "use": "@vercel/static" },
     { "src": "/api/public/**", "use": "@vercel/static" }
   ],
@@ -21,5 +20,10 @@
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ]
+  ],
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  }
 }
