@@ -3,11 +3,6 @@
     { "src": "/api/favicon.ico", "use": "@vercel/static" },
     { "src": "/api/public/**", "use": "@vercel/static" }
   ],
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
   "routes": [
     {
       "src": "/public/(.*)",
@@ -25,5 +20,10 @@
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ]
+  ],
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  }
 }
