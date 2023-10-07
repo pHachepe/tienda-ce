@@ -1,4 +1,8 @@
 {
+  "builds": [
+    { "src": "/api/favicon.ico", "use": "@vercel/static" },
+    { "src": "/api/public/**", "use": "@vercel/static" }
+  ],
   "routes": [
     {
       "src": "/public/(.*)",
@@ -19,6 +23,9 @@
   ],
   "functions": {
     "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    },
+    "api/public/*.php": {
       "runtime": "vercel-php@0.6.0"
     }
   }
