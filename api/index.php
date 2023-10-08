@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/constants.php';
 require_once 'config/db.php';
-session_start();
+require_once 'includes/session_db_handler.php';
 
 $params = $_GET;
 if (isset($_GET['logout'])) {
@@ -30,30 +30,25 @@ if (isset($_GET['logout'])) {
 
 <body>
     <div class="wrapper min-h-screen ">
-        <?php include 'includes/header.php'; ?>
+        <?php include_once 'includes/header.php'; ?>
 
         <main class="min-h-screen flex flex-col">
             <?php
             if (isset($_GET['producto'])) {
-                include 'includes/product_details.php';
+                include_once 'includes/product_details.php';
             } else if (isset($_GET['categoria'])) {
-                include 'includes/category.php';
+                include_once 'includes/category.php';
             } else if (isset($_GET['search'])) {
-                include 'includes/search.php';
+                include_once 'includes/search.php';
             } else {
-                include 'includes/random_products.php';
+                include_once 'includes/random_products.php';
             }
             ?>
         </main>
 
-        <?php include 'includes/footer.php'; ?>
+        <?php include_once 'includes/footer.php'; ?>
     </div>
     <div id="loginMessage" class="fixed bottom-4 right-4 text-white px-4 py-2 rounded-lg shadow-md opacity-0 transition-opacity"></div>
 </body>
 
 </html>
-
-<?php
-$resultado->close();
-$conn->close();
-?>

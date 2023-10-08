@@ -36,7 +36,7 @@ for ($i = 0; $i < $filas; $i++) {
                 </button>
                 <div id="cart-dropdown" class="bg-white absolute z-10 top-full w-96 -left-40 group-hover:block hidden rounded-t-lg">
                     <div id="cart-body" class="p-4 text-black shadow-md rounded-md">
-                        <?php include 'cart.php'; ?>
+                        <?php include_once 'cart.php'; ?>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@ for ($i = 0; $i < $filas; $i++) {
                 ?>
                     <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
                         <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
-                            <?php include 'form-login.php'; ?>
+                            <?php include_once 'form-login.php'; ?>
                         </div>
                     </div>
                 <?php

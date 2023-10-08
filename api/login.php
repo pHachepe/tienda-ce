@@ -1,7 +1,7 @@
 <?php
-session_start();
-include 'config/db.php';
-include 'includes/constants.php';
+require_once 'config/db.php';
+require_once 'includes/session_db_handler.php';
+require_once 'includes/constants.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -35,8 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "msg" => ERROR_DB
         ));
     }
-    $stmt->close();
-    $conn->close();
 } else {
     echo json_encode(array(
         "success" => false,
