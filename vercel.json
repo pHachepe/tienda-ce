@@ -3,10 +3,6 @@
     {
       "src": "/public/(.*)",
       "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/$1"
     }
   ],
   "functions": {
