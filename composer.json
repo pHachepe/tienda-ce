@@ -5,15 +5,10 @@
       "name": "PeHachePe"
     }
   ],
-  "autoload": {
-    "psr-4": {
-      "Abraham\\Tienda\\": "src/"
-    }
-  },
   "description": "Tienda Abraham - Comercio Electronico",
   "name": "abraham/tienda",
   "require": {
-    "vlucas/phpdotenv": "^5.5"
+    "vlucas/phpdotenv": "5.5"
   },
   "scripts": {
     "start": [

@@ -39,7 +39,6 @@ if (!$producto) {
                 <div class="flex items-start space-x-2">
                     <div class="flex-shrink-0">
                         <i class="w-15 h-15 rounded-full fas fa-user-circle fa-2x"></i>
-                        <!--<img src="avatar1.jpg" alt="Usuario" class="w-10 h-10 rounded-full">-->
                     </div>
                     <div>
                         <p class="font-semibold">Nombre de Usuario</p>
