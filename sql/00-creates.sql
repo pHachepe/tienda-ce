@@ -2,6 +2,12 @@ DROP DATABASE IF EXISTS tienda;
 CREATE DATABASE tienda;
 USE tienda;
 
+CREATE TABLE sessions (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    data MEDIUMTEXT NOT NULL,
+    last_accessed TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 -- Tabla de Categorías
 CREATE TABLE categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,7 +21,8 @@ CREATE TABLE productos (
     nombre VARCHAR(255),
     descripcion TEXT,
     precio DECIMAL(10, 2),
-    stock INT
+    stock INT,
+    imagen VARCHAR(255),
 );
 
 -- Tabla de Categorías_Productos
@@ -30,6 +37,8 @@ CREATE TABLE categorias_productos (
 -- Tabla de Usuarios
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellidos VARCHAR(255),
     correo VARCHAR(255),
     contraseña VARCHAR(255),
     telefono VARCHAR(255),
