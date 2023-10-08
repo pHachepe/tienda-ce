@@ -1,6 +1,10 @@
 {
   "routes": [
     {
+      "src": "/index.php",
+      "dest": "/index.php"
+    },    
+    {
       "src": "/public/(.*)",
       "dest": "/$1"
     }
