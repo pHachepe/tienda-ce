@@ -29,7 +29,6 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body>
-    <h2>Raíz</h2>
     <div class="wrapper min-h-screen ">
         <?php include_once 'api/includes/header.php'; ?>
 
