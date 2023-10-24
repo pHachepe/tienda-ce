@@ -1,8 +1,4 @@
 <?php
-echo '<pre>';
-echo '$_SESSION: ';
-print_r($_SESSION);
-echo '</pre>';
 $sql = "SELECT * FROM categorias";
 $resultado = $conn->query($sql);
 $filas = $resultado->num_rows;
