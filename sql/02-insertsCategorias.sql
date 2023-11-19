@@ -1,9 +1,0 @@
-INSERT INTO categorias (id, nombre, icono) VALUES (1, "Electrónica", "fa-tv");                        
-INSERT INTO categorias (id, nombre, icono) VALUES (2, "Ropa", "fa-tshirt");                           
-INSERT INTO categorias (id, nombre, icono) VALUES (3, "Hogar", "fa-couch");                           
-INSERT INTO categorias (id, nombre, icono) VALUES (4, "Alimentos", "fa-utensils");                    
-INSERT INTO categorias (id, nombre, icono) VALUES (5, "Videojuegos", "fa-gamepad");                   
-INSERT INTO categorias (id, nombre, icono) VALUES (6, "Deportes", "fa-futbol");                       
-INSERT INTO categorias (id, nombre, icono) VALUES (7, "Libros", "fa-book");                           
-INSERT INTO categorias (id, nombre, icono) VALUES (8, "Música", "fa-music");                          
-INSERT INTO categorias (id, nombre, icono) VALUES (9, "Películas", "fa-photo-film");                  
