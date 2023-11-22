@@ -24,8 +24,8 @@ if (isset($_GET['logout'])) {
     <!--
         <script src="https://cdn.tailwindcss.com"></script>
     -->
-    <link rel="stylesheet" href="public/css/styles.min.css">
-    <script src="public/js/script.js"></script>
+    <link rel="stylesheet" href="../public/css/styles.min.css">
+    <script src="../public/js/script.js"></script>
 </head>
 
 <body>
