@@ -173,7 +173,7 @@ function handleLogin(event) {
   const formData = new FormData(event.target);
   const loginMessage = document.getElementById("loginMessage");
 
-  fetch('login.php', {
+  fetch('api/login.php', {
     method: 'POST',
     body: formData
   })
