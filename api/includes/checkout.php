@@ -4,7 +4,9 @@
         <li class="flex items-center">
             <a href="index.php" class="text-blue-500"><?= HOME ?></a>
             <span class="mx-2 text-gray-500"><?= SEPARATOR ?></span>
-            <span class="text-gray-600">PIKA</span>
+        </li>
+        <li class="flex items-center">
+            <span class="text-gray-600"><?= CHECKOUT ?></span>
         </li>
     </ol>
 </nav>
