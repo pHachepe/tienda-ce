@@ -56,7 +56,7 @@ if (isset($_GET['categoria'])) {
 
 <!-- No Products -->
 <?php if ($filas == 0) { ?>
-    <div class="flex justify-center items-center h-screen">
+    <div class="flex justify-center items-center min-h-full">
         <div>
             <h2 class="text-lg font-semibold text-gray-800"><?= NO_PRODUCTS; ?></h2>
         </div>

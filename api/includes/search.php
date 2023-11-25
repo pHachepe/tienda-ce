@@ -28,12 +28,10 @@ if (strlen($search) >= $min_length) {
 
 <!-- No Products -->
 <?php if (count($productos) == 0) { ?>
-    <div class="flex justify-center items-center h-screen">
-        <div>
-            <h2 class="text-lg font-semibold text-gray-800">
-                <?= (strlen($search) <= $min_length) ? sprintf(MIN_CHARS, $min_length) : PRODUCTS_NOT_FOUND . '"' . $search . '"'; ?>
-            </h2>
-        </div>
+    <div class="flex justify-center items-center min-h-full">
+        <h2 class="text-lg font-semibold text-gray-800">
+            <?= (strlen($search) <= $min_length) ? sprintf(MIN_CHARS, $min_length) : PRODUCTS_NOT_FOUND . '"' . $search . '"'; ?>
+        </h2>
     </div>
 <?php } else { ?>
     <!-- Products -->
