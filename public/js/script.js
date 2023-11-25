@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCart();
   updateCartDropdown();
   setupLoginFormListener();
+  displayOrderSummaryRows();
 
   if (document.startViewTransition) {
     window.navigation.addEventListener('navigate', (event) => {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
               });
 
+              displayOrderSummaryRows();
             })
           }
         })
@@ -85,7 +87,7 @@ function updateCartDropdown() {
             <h5 class="text-lg truncate mb-2">${product.nombre}</h5>
             <div class="flex justify-between">
               <h2 class="text-xl font-semibold text-gray-600 truncate">${product.precio}€</h2>
-              <input type="number" name="cantidad" value="${product.cantidad}" min="1" class="border border-gray-300 px-2 py-1 rounded-lg w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" onchange="updateProductQuantity(${product.id}, this.value)" />
+              <input type="number" name="cantidad" value="${product.cantidad}" min="1" class="border border-gray-300 px-2 py-1 rounded w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" onchange="updateProductQuantity(${product.id}, this.value)" />
               <button class="text-red-500 hover:text-red-600 focus:outline-none remove-from-cart" data-product-id="${product.id}" onclick="removeFromCart(${product.id})">
                 <i class="fas fa-trash"></i>
               </button>
@@ -126,7 +128,7 @@ function removeFromCart(productId) {
   const productElement = document.querySelector(`[data-product-id="${productId}"]`).closest('article');
 
   // Se añade una clase para que se ejecute la animación de eliminación
-  productElement.classList.add('animate-pulse', 'bg-red-100', 'border-red-500', 'text-red-900', 'rounded-lg');
+  productElement.classList.add('animate-pulse', 'bg-red-100', 'border-red-500', 'text-red-900', 'rounded');
 
   // Cuando la transición se complete se elimina el producto del carrito
   setTimeout(() => {
@@ -198,4 +200,26 @@ function handleLogin(event) {
     .catch(error => {
       console.error('Error:', error);
     });
+}
+
+function displayOrderSummaryRows() {
+  if (document.getElementById('cart-items')) {
+    const cartItemsContainer = document.getElementById('cart-items');
+    let cartHTML = '';
+    const cart = getCart();
+
+    cart.forEach(product => {
+      cartHTML += `
+          <tr class="border-b border-gray-200 hover:bg-gray-100 text-center">
+              <td><img alt="${product.nombre}" src="${product.imagen ? product.imagen : 'public/img/default.png'}" class="mx-auto object-cover rounded h-10 w-10" /></td>
+              <td>${product.nombre}</td>
+              <td>${product.cantidad}</td>
+              <td>${product.precio}€</td>
+              <td>${(product.precio * product.cantidad).toFixed(2)}€</td>
+          </tr>
+      `;
+    });
+
+    cartItemsContainer.innerHTML = cartHTML;
+  }
 }
