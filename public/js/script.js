@@ -207,11 +207,19 @@ function displayOrderSummaryRows() {
   const cartItemsContainer = document.getElementById('summary-items');
   if (cartItemsContainer) {
     let cartHTML = '';
+    let totalHTML = '';
     const cart = getCart();
 
-    cart.forEach(product => {
+    if (cart.length === 0) {
       cartHTML += `
-      <tr class="border-b border-gray-200 hover:bg-gray-100 text-center">
+      <tr>
+        <td colspan="5" class="text-center p-32">No hay productos en el carrito</td>
+      </tr>
+      `;
+    } else {
+      cart.forEach(product => {
+        cartHTML += `
+      <tr class="border-b border-gray-200 hover:bg-gray-50 text-center">
         <td class="p-2"><img alt="${product.nombre}" src="${product.imagen ? product.imagen : 'public/img/default.png'}" class="mx-auto object-cover rounded h-10 w-10" /></td>
         <td>${product.nombre}</td>
         <td>${product.cantidad}</td>
@@ -219,10 +227,11 @@ function displayOrderSummaryRows() {
         <td>${(product.precio * product.cantidad).toFixed(2)}€</td>
       </tr>
       `;
-    });
+      });
+      totalHTML = "Total: " + cart.reduce((total, product) => total + (product.precio * product.cantidad), 0).toFixed(2) + "€";
+    }
 
+    document.getElementById('summary-total').textContent = totalHTML;
     cartItemsContainer.innerHTML = cartHTML;
-    const total = cart.reduce((acc, product) => acc + (product.precio * product.cantidad), 0);
-    document.getElementById('summary-total').textContent = "Total: " + total.toFixed(2) + "€";
   }
 }

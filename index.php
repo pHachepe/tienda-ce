@@ -3,7 +3,6 @@ require_once "api/includes/constants.php";
 require_once "api/config/db.php";
 require_once "api/includes/session_db_handler.php";
 
-print_r($_SESSION);
 $params = $_GET;
 if (isset($_GET["logout"])) {
     session_destroy();

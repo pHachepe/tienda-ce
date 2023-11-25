@@ -89,6 +89,10 @@
                 </thead>
                 <tbody id="summary-items" class="bg-white">
                     <!-- Con JS se insertan las filas con los datos de los productos del carrito de localStorage -->
+                    <!-- No hay productos en el carrito -->
+                    <tr id="summary-empty" class="hidden">
+                        <td colspan="5" class="text-center py-4">No hay productos en el carrito</td>
+                    </tr>
                 </tbody>
             </table>
             <!-- Total -->
