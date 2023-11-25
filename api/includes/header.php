@@ -16,7 +16,7 @@ for ($i = 0; $i < $filas; $i++) {
         </h1>
 
         <form method="GET" class="relative col-span-4 flex pt-2 mt-1">
-            <input type="text" name="search" placeholder="<?= SEARCH ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300">
+            <input type="text" name="search" placeholder="<?= SEARCH ?>" class="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded focus:outline-none focus:ring focus:ring-blue-300" autocomplete="off">
             <button type="submit" class="absolute top-1/2 right-3 transform -translate-y-1/2">
                 <i class="fas fa-search text-gray-600 pt-2"></i>
             </button>
