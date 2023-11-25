@@ -1,4 +1,4 @@
-<footer class="bg-white mx-auto w-full max-w-screen-xl pb-4">
+<footer class="bg-white mt-auto mx-auto w-full max-w-screen-xl pb-4">
     <hr class="py-2 border-gray-200 sm:mx-auto" />
     <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center"><?= COPYRIGHT; ?></span>
