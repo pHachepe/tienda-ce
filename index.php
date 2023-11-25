@@ -1,16 +1,17 @@
 <?php
-require_once 'api/includes/constants.php';
-require_once 'api/config/db.php';
-require_once 'api/includes/session_db_handler.php';
+require_once "api/includes/constants.php";
+require_once "api/config/db.php";
+require_once "api/includes/session_db_handler.php";
 
+print_r($_SESSION);
 $params = $_GET;
-if (isset($_GET['logout'])) {
+if (isset($_GET["logout"])) {
     session_destroy();
-    unset($params['logout']);
-    header('Location: index.php?' . http_build_query($params));
-} elseif (isset($_GET['login'])) {
-    unset($params['login']);
-    header('Location: index.php?' . http_build_query($params));
+    unset($params["logout"]);
+    header("Location: index.php?" . http_build_query($params));
+} elseif (isset($_GET["login"])) {
+    unset($params["login"]);
+    header("Location: index.php?" . http_build_query($params));
 }
 ?>
 
@@ -28,35 +29,35 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <?php include_once 'api/includes/header.php'; ?>
+    <?php include_once "api/includes/header.php"; ?>
 
     <main class="flex-grow">
-        <?php
-        if (isset($_GET['producto'])) {
-            include_once 'api/includes/product_details.php';
-        } else if (isset($_GET['categoria'])) {
-            include_once 'api/includes/category.php';
-        } else if (isset($_GET['search'])) {
-            include_once 'api/includes/search.php';
-        } else if (isset($_GET['cart'])) {
-            include_once 'api/includes/cart.php';
-        } else if (isset($_GET['profile'])) {
-            include_once 'api/includes/profile.php';
-        } else if (isset($_GET['orders'])) {
-            include_once 'api/includes/orders.php';
-        } else if (isset($_GET['payments'])) {
-            include_once 'api/includes/payments.php';
-        } else if (isset($_GET['addresses'])) {
-            include_once 'api/includes/addresses.php';
+        <?php if (isset($_GET["producto"])) {
+            include_once "api/includes/product_details.php";
+        } elseif (isset($_GET["categoria"])) {
+            include_once "api/includes/category.php";
+        } elseif (isset($_GET["search"])) {
+            include_once "api/includes/search.php";
+        } elseif (isset($_GET["cart"])) {
+            include_once "api/includes/cart.php";
+        } elseif (isset($_GET["checkout"])) {
+            include_once "api/includes/checkout.php";
+        } elseif (isset($_GET["profile"])) {
+            include_once "api/includes/profile.php";
+        } elseif (isset($_GET["orders"])) {
+            include_once "api/includes/orders.php";
+        } elseif (isset($_GET["payments"])) {
+            include_once "api/includes/payments.php";
+        } elseif (isset($_GET["addresses"])) {
+            include_once "api/includes/addresses.php";
         } else {
-            include_once 'api/includes/random_products.php';
-        }
-        ?>
+            include_once "api/includes/random_products.php";
+        } ?>
     </main>
 
-    <?php include_once 'api/includes/footer.php'; ?>
+    <?php include_once "api/includes/footer.php"; ?>
 
-    <div id="loginMessage" class="fixed bottom-4 right-4 text-white px-4 py-2 rounded-lg shadow-md opacity-0 transition-opacity"></div>
+    <div id="loginMessage" class="fixed bottom-4 right-4 text-white px-4 py-2 rounded shadow-md opacity-0 transition-opacity"></div>
 </body>
 
 </html>
