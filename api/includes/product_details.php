@@ -4,12 +4,38 @@ $sql = "SELECT * FROM productos WHERE id = $id";
 $resultado = $conn->query($sql);
 $producto = $resultado->fetch_assoc();
 
-if (!$producto) {
-    header("Location: index.php");
+$sql = "SELECT c.nombre FROM categorias c INNER JOIN categorias_productos cp ON c.id = cp.id_categoria WHERE cp.id_producto = $id";
+$resultado = $conn->query($sql);
+$categorias = [];
+while ($categoria = $resultado->fetch_assoc()) {
+    $categorias[] = $categoria["nombre"];
 }
 ?>
 
-<div class="container flex items-center justify-center min-h-full mx-auto ">
+<!-- Breadcrumb -->
+<nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
+    <ol class="list-none p-0 inline-flex">
+        <li class="flex items-center">
+            <a href="index.php" class="text-blue-500"><?= HOME ?></a>
+            <span class="mx-2 text-gray-500"><?= SEPARATOR ?></span>
+        </li>
+        <?php foreach ($categorias as $categoria): ?>
+            <li class="flex items-center">
+                <a href="index.php?categoria=<?= $categoria ?>" class="text-blue-500"><?= $categoria ?></a>
+                <?php if ($categoria != end($categorias)): ?>
+                    <span class="mx-2 text-gray-500">|</span>
+                <?php else: ?>
+                    <span class="mx-2 text-gray-500"><?= SEPARATOR ?></span>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+        <li class="flex items-center">
+            <span class="text-gray-600"><?= $producto["nombre"] ?></span>
+        </li>
+    </ol>
+</nav>
+
+<div class="container flex items-center justify-center m-8 mx-auto">
     <!-- Image to left -->
     <div class="w-1/2">
         <img style="view-transition-name: product-image-<?= $producto["id"] ?>" src="../public/img/default.png" alt="Producto" class="max-w-full h-auto mx-auto">

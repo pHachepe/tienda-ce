@@ -87,7 +87,7 @@ function updateCartDropdown() {
             <h5 class="text-lg truncate mb-2">${product.nombre}</h5>
             <div class="flex justify-between">
               <h2 class="text-xl font-semibold text-gray-600 truncate">${product.precio}€</h2>
-              <input type="number" name="cantidad" value="${product.cantidad}" min="1" class="border border-gray-300 px-2 py-1 rounded w-20 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" onchange="updateProductQuantity(${product.id}, this.value)" />
+              <input type="number" name="cantidad" value="${product.cantidad}" min="1" class="border border-gray-300 px-2 py-1 rounded w-20 focus:outline-blue-600" onchange="updateProductQuantity(${product.id}, this.value)" />
               <button class="text-red-500 hover:text-red-600 focus:outline-none remove-from-cart" data-product-id="${product.id}" onclick="removeFromCart(${product.id})">
                 <i class="fas fa-trash"></i>
               </button>
@@ -99,6 +99,7 @@ function updateCartDropdown() {
   document.querySelector("#cart-count").textContent = cartCount;
   document.querySelector("#articulos").innerHTML = cartContent;
   document.querySelector("#total").textContent = `Total: ${total.toFixed(2)} €`;
+  displayOrderSummaryRows();
 }
 
 function addToCart() {
@@ -203,23 +204,25 @@ function handleLogin(event) {
 }
 
 function displayOrderSummaryRows() {
-  if (document.getElementById('cart-items')) {
-    const cartItemsContainer = document.getElementById('cart-items');
+  const cartItemsContainer = document.getElementById('summary-items');
+  if (cartItemsContainer) {
     let cartHTML = '';
     const cart = getCart();
 
     cart.forEach(product => {
       cartHTML += `
-          <tr class="border-b border-gray-200 hover:bg-gray-100 text-center">
-              <td><img alt="${product.nombre}" src="${product.imagen ? product.imagen : 'public/img/default.png'}" class="mx-auto object-cover rounded h-10 w-10" /></td>
-              <td>${product.nombre}</td>
-              <td>${product.cantidad}</td>
-              <td>${product.precio}€</td>
-              <td>${(product.precio * product.cantidad).toFixed(2)}€</td>
-          </tr>
+      <tr class="border-b border-gray-200 hover:bg-gray-100 text-center">
+        <td class="p-2"><img alt="${product.nombre}" src="${product.imagen ? product.imagen : 'public/img/default.png'}" class="mx-auto object-cover rounded h-10 w-10" /></td>
+        <td>${product.nombre}</td>
+        <td>${product.cantidad}</td>
+        <td>${product.precio}€</td>
+        <td>${(product.precio * product.cantidad).toFixed(2)}€</td>
+      </tr>
       `;
     });
 
     cartItemsContainer.innerHTML = cartHTML;
+    const total = cart.reduce((acc, product) => acc + (product.precio * product.cantidad), 0);
+    document.getElementById('summary-total').textContent = "Total: " + total.toFixed(2) + "€";
   }
 }
