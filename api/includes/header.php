@@ -48,10 +48,10 @@ for ($i = 0; $i < $filas; $i++) {
                 ?>
                     <div id="user-dropdown" class="bg-white absolute z-10 top-full -left-8 w-40 group-hover:block hidden rounded-t-lg">
                         <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col p-5 space-y-3">
-                            <a href="profile.php" class="hover:text-blue-500"><i class="fas fa-gear"></i> <?= PROFILE; ?></a>
-                            <a href="orders.php" class="hover:text-blue-500"><i class="fas fa-box-archive"></i> <?= ORDERS; ?></a>
-                            <a href="payments.php" class="hover:text-blue-500"><i class="fas fa-credit-card"></i> <?= PAYMENTS; ?></a>
-                            <a href="addresses.php" class="hover:text-blue-500"><i class="fas fa-map-marker-alt"></i> <?= ADDRESSES; ?></a>
+                            <a href="?profile" class="hover:text-blue-500"><i class="fas fa-gear"></i> <?= PROFILE; ?></a>
+                            <a href="?orders" class="hover:text-blue-500"><i class="fas fa-box-archive"></i> <?= ORDERS; ?></a>
+                            <a href="?payments" class="hover:text-blue-500"><i class="fas fa-credit-card"></i> <?= PAYMENTS; ?></a>
+                            <a href="?addresses" class="hover:text-blue-500"><i class="fas fa-map-marker-alt"></i> <?= ADDRESSES; ?></a>
                             <a href="?logout" class="hover:text-blue-500"><i class="fas fa-sign-out-alt"></i> <?= LOGOUT; ?></a>
                         </div>
                     </div>
