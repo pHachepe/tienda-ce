@@ -2,7 +2,7 @@
 $sql = "SELECT * FROM categorias";
 $resultado = $conn->query($sql);
 $filas = $resultado->num_rows;
-$categories = array();
+$categories = [];
 for ($i = 0; $i < $filas; $i++) {
     $resultado->data_seek($i);
     $fila = $resultado->fetch_array(MYSQLI_ASSOC);
@@ -12,7 +12,7 @@ for ($i = 0; $i < $filas; $i++) {
 <nav class="bg-blue-500 text-white">
     <div class="container mx-auto py-4 grid grid-cols-6 items-center">
         <h1 class="col-span-1 text-2xl font-semibold">
-            <a href="index.php"><?= TITLE; ?></a>
+            <a href="index.php"><?= TITLE ?></a>
         </h1>
 
         <form method="GET" class="relative col-span-4 flex pt-2 mt-1">
@@ -28,11 +28,11 @@ for ($i = 0; $i < $filas; $i++) {
                 <button class="flex items-center">
                     <i id="cart-icon" class="fas fa-shopping-cart relative z-10"></i>
                     <span id="cart-count" class="absolute top-0 left-4 bg-red-500 text-white rounded-full px-1 text-xs z-20">0</span>
-                    <span class="ml-2"><?= BASKET; ?></span>
+                    <span class="ml-2"><?= BASKET ?></span>
                 </button>
                 <div id="cart-dropdown" class="bg-white absolute z-10 top-full w-96 -left-40 group-hover:block hidden rounded-t-lg">
                     <div id="cart-body" class="p-4 text-black shadow-md rounded-md">
-                        <?php include_once 'cart.php'; ?>
+                        <?php include_once "cart.php"; ?>
                     </div>
                 </div>
             </div>
@@ -40,32 +40,26 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown My Account -->
             <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
-                    <i class="fas fa-user"></i> <?= isset($_SESSION['loggedin']) ? $_SESSION['user']['nombre'] : MY_ACCOUNT; ?>
+                    <i class="fas fa-user"></i> <?= isset($_SESSION["loggedin"]) ? $_SESSION["user"]["nombre"] : MY_ACCOUNT ?>
                 </button>
 
-                <?php
-                if (isset($_SESSION['loggedin'])) {
-                ?>
+                <?php if (isset($_SESSION["loggedin"])) { ?>
                     <div id="user-dropdown" class="bg-white absolute z-10 top-full -left-8 w-40 group-hover:block hidden rounded-t-lg">
                         <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col p-5 space-y-3">
-                            <a href="?profile" class="hover:text-blue-500"><i class="fas fa-gear"></i> <?= PROFILE; ?></a>
-                            <a href="?orders" class="hover:text-blue-500"><i class="fas fa-box-archive"></i> <?= ORDERS; ?></a>
-                            <a href="?payments" class="hover:text-blue-500"><i class="fas fa-credit-card"></i> <?= PAYMENTS; ?></a>
-                            <a href="?addresses" class="hover:text-blue-500"><i class="fas fa-map-marker-alt"></i> <?= ADDRESSES; ?></a>
-                            <a href="?logout" class="hover:text-blue-500"><i class="fas fa-sign-out-alt"></i> <?= LOGOUT; ?></a>
+                            <a href="?profile" class="hover:text-blue-500"><i class="fas fa-gear"></i> <?= PROFILE ?></a>
+                            <a href="?orders" class="hover:text-blue-500"><i class="fas fa-box-archive"></i> <?= ORDERS ?></a>
+                            <a href="?payments" class="hover:text-blue-500"><i class="fas fa-credit-card"></i> <?= PAYMENTS ?></a>
+                            <a href="?addresses" class="hover:text-blue-500"><i class="fas fa-map-marker-alt"></i> <?= ADDRESSES ?></a>
+                            <a href="?logout" class="hover:text-blue-500"><i class="fas fa-sign-out-alt"></i> <?= LOGOUT ?></a>
                         </div>
                     </div>
-                <?php
-                } else {
-                ?>
+                <?php } else { ?>
                     <div id="user-dropdown" class="bg-white absolute z-10 top-full left-20 transform -translate-x-48 w-64 group-hover:block hidden rounded-t-lg">
                         <div class="h-52 text-gray-700 shadow-md rounded-md flex flex-col items-center justify-center">
-                            <?php include_once 'form-login.php'; ?>
+                            <?php include_once "form-login.php"; ?>
                         </div>
                     </div>
-                <?php
-                }
-                ?>
+                <?php } ?>
             </div>
             <!-- End Dropdown My Account -->
         </div>
@@ -73,7 +67,7 @@ for ($i = 0; $i < $filas; $i++) {
     <div class="container mx-auto py-2">
         <ul class="flex space-x-4 justify-between">
             <?php foreach ($categories as $category) { ?>
-                <li><a href="?categoria=<?= $category['nombre']; ?>" class="hover:text-gray-300"><i class="fas <?= $category['icono']; ?>"></i> <?= $category['nombre']; ?></a></li>
+                <li><a href="?categoria=<?= $category["nombre"] ?>" class="hover:text-gray-300"><i class="fas <?= $category["icono"] ?>"></i> <?= $category["nombre"] ?></a></li>
             <?php } ?>
         </ul>
     </div>
