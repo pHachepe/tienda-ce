@@ -45,10 +45,6 @@ if (isset($_GET["logout"])) {
             include_once "api/includes/profile.php";
         } elseif (isset($_GET["orders"])) {
             include_once "api/includes/orders.php";
-        } elseif (isset($_GET["payments"])) {
-            include_once "api/includes/payments.php";
-        } elseif (isset($_GET["addresses"])) {
-            include_once "api/includes/addresses.php";
         } else {
             include_once "api/includes/random_products.php";
         } ?>

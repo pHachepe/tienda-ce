@@ -43,7 +43,37 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Teléfono inteligente','Teléfono avanzado con cámara de alta resolución.',499.99,5,'[\"telefono-inteligente.jpg\", \"telefono-inteligente-2.jpg\"]'),(2,'Televisor LED','Televisor de alta definición con tecnología LED.',699.99,5,'[\"television-led.jpg\",\"television-led-2.jpg\"]'),(3,'Portátil MSI','Portátil potente y ligero para trabajo y entretenimiento.',899.99,5,NULL),(4,'Auriculares inalámbricos','Auriculares Bluetooth con cancelación de ruido.',149.99,5,NULL),(5,'Cámara DSLR','Cámara réflex digital con lentes intercambiables.',799.99,5,NULL),(6,'Tablet','Tablet de última generación con pantalla táctil.',349.99,5,NULL),(7,'Altavoz Bluetooth','Altavoz portátil con conectividad Bluetooth.',79.99,5,NULL),(8,'Reloj inteligente','Reloj con seguimiento de actividad y notificaciones.',199.99,5,NULL),(9,'Consola de videojuegos','Consola de juegos de alta gama para experiencias de juego inmersivas.',499.99,5,NULL),(10,'Impresora 3D','Impresora 3D para crear objetos tridimensionales.',299.99,5,NULL),(11,'Camiseta de algodón','Camiseta básica de algodón suave.',19.99,5,NULL),(12,'Jeans ajustados','Pantalones vaqueros ajustados y modernos.',39.99,5,NULL),(13,'Vestido elegante','Vestido de noche elegante y sofisticado.',69.99,5,NULL),(14,'Chaqueta de cuero','Chaqueta de cuero genuino con diseño moderno.',129.99,5,NULL),(15,'Zapatillas deportivas','Zapatillas cómodas para actividades deportivas.',59.99,5,NULL),(16,'Traje formal','Traje completo para ocasiones formales.',199.99,5,NULL),(17,'Sudadera con capucha','Sudadera cómoda con capucha y bolsillos.',29.99,5,NULL),(18,'Blusa de seda','Blusa de seda suave y ligera.',49.99,5,NULL),(19,'Calcetines a rayas','Calcetines divertidos con diseño a rayas.',9.99,5,NULL),(20,'Abrigo de invierno','Abrigo abrigado y resistente al viento para el invierno.',149.99,5,NULL),(21,'Conjunto deportivo','Conjunto de ropa deportiva para entrenamientos intensos.',59.99,5,NULL),(22,'Asistente de voz inteligente','Dispositivo que proporciona control por voz y funciones para el hogar.',39.99,5,NULL),(23,'Set de especias gourmet','Set de especias de alta calidad para cocinar platos deliciosos.',24.99,5,NULL),(24,'Manta suave y acogedora','Manta de tela suave perfecta para relajarse en casa.',29.99,5,NULL),(25,'Auriculares inalámbricos deportivos','Auriculares diseñados para deportes con conectividad Bluetooth.',69.99,5,NULL),(26,'Cafetera de goteo programable','Cafetera que prepara café automáticamente con temporizador.',49.99,5,NULL),(27,'Bicicleta estática plegable','Bicicleta de ejercicio plegable para entrenamientos en casa.',199.99,5,NULL),(28,'Chaqueta deportiva resistente al viento','Chaqueta ligera y cortavientos para actividades deportivas.',89.99,5,NULL),(29,'Báscula de cocina digital','Báscula precisa para medir ingredientes al cocinar.',19.99,5,NULL),(30,'Botella de agua deportiva','Botella resistente y diseñada para llevar durante actividades físicas.',12.99,5,NULL);
+INSERT INTO `productos` VALUES 
+(1,'Teléfono inteligente','Teléfono avanzado con cámara de alta resolución.',499.99,5,'[\"telefono-inteligente.jpg\", \"telefono-inteligente-2.jpg\"]'),
+(2,'Televisor LED','Televisor de alta definición con tecnología LED.',699.99,5,'[\"television-led.jpg\",\"television-led-2.jpg\"]'),
+(3,'Portátil MSI','Portátil potente y ligero para trabajo y entretenimiento.',899.99,5,'[\"portatil-msi.jpg\"]'),
+(4,'Auriculares inalámbricos','Auriculares Bluetooth con cancelación de ruido.',149.99,5,'[\"auriculares-inalambricos.jpg\"]'),
+(5,'Cámara DSLR','Cámara réflex digital con lentes intercambiables.',799.99,5,'[\"camara-dslr.jpg\"]'),
+(6,'Tablet','Tablet de última generación con pantalla táctil.',349.99,5,'[\"tablet.jpg\"]'),
+(7,'Altavoz Bluetooth','Altavoz portátil con conectividad Bluetooth.',79.99,5,'[\"altavoz-bluetooth.jpg\",\"altavoz-bluetooth.jpg-2\"]'),
+(8,'Reloj inteligente','Reloj con seguimiento de actividad y notificaciones.',199.99,5,'[\"reloj-inteligente.jpg\"]'),
+(9,'Consola de videojuegos','Consola de juegos de alta gama para experiencias de juego inmersivas.',499.99,5,'[\"ps5.jpg\"]'),
+(10,'Impresora 3D','Impresora 3D para crear objetos tridimensionales.',299.99,5,NULL),
+(11,'Camiseta de algodón','Camiseta básica de algodón suave.',19.99,5,NULL),
+(12,'Jeans ajustados','Pantalones vaqueros ajustados y modernos.',39.99,5,NULL),
+(13,'Vestido elegante','Vestido de noche elegante y sofisticado.',69.99,5,NULL),
+(14,'Chaqueta de cuero','Chaqueta de cuero genuino con diseño moderno.',129.99,5,NULL),
+(15,'Zapatillas deportivas','Zapatillas cómodas para actividades deportivas.',59.99,5,NULL),
+(16,'Traje formal','Traje completo para ocasiones formales.',199.99,5,NULL),
+(17,'Sudadera con capucha','Sudadera cómoda con capucha y bolsillos.',29.99,5,NULL),
+(18,'Blusa de seda','Blusa de seda suave y ligera.',49.99,5,NULL),
+(19,'Calcetines a rayas','Calcetines divertidos con diseño a rayas.',9.99,5,NULL),
+(20,'Abrigo de invierno','Abrigo abrigado y resistente al viento para el invierno.',149.99,5,NULL),
+(21,'Conjunto deportivo','Conjunto de ropa deportiva para entrenamientos intensos.',59.99,5,NULL),
+(22,'Asistente de voz inteligente','Dispositivo que proporciona control por voz y funciones para el hogar.',39.99,5,NULL),
+(23,'Set de especias gourmet','Set de especias de alta calidad para cocinar platos deliciosos.',24.99,5,NULL),
+(24,'Manta suave y acogedora','Manta de tela suave perfecta para relajarse en casa.',29.99,5,NULL),
+(25,'Auriculares inalámbricos deportivos','Auriculares diseñados para deportes con conectividad Bluetooth.',69.99,5,NULL),
+(26,'Cafetera de goteo programable','Cafetera que prepara café automáticamente con temporizador.',49.99,5,NULL),
+(27,'Bicicleta estática plegable','Bicicleta de ejercicio plegable para entrenamientos en casa.',199.99,5,NULL),
+(28,'Chaqueta deportiva resistente al viento','Chaqueta ligera y cortavientos para actividades deportivas.',89.99,5,NULL),
+(29,'Báscula de cocina digital','Báscula precisa para medir ingredientes al cocinar.',19.99,5,NULL),
+(30,'Botella de agua deportiva','Botella resistente y diseñada para llevar durante actividades físicas.',12.99,5,NULL);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
