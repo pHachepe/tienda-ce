@@ -82,7 +82,7 @@ function updateCartDropdown() {
     total += precio * cantidad;
     cartContent += `
     <article class="flex space-x-4 border-b px-2">
-        <img src="public/img/default.png" alt="Producto" class="w-20 h-20 p-2">
+        <img src="public/img/${product.imagenes[0]}" alt="Producto" class="w-20 h-20 p-2">
         <div class="flex-1 overflow-hidden">
             <h5 class="text-lg truncate mb-2">${product.nombre}</h5>
             <div class="flex justify-between">
@@ -220,7 +220,7 @@ function displayOrderSummaryRows() {
       cart.forEach(product => {
         cartHTML += `
       <tr class="border-b border-gray-200 hover:bg-gray-50 text-center">
-        <td class="p-2"><img alt="${product.nombre}" src="${product.imagen ? product.imagen : 'public/img/default.png'}" class="mx-auto object-cover rounded h-10 w-10" /></td>
+        <td class="p-2"><img alt="${product.nombre}" src="public/img/${product.imagenes[0]}" class="mx-auto object-cover rounded h-14 w-14" /></td>
         <td>${product.nombre}</td>
         <td>${product.cantidad}</td>
         <td>${product.precio}€</td>
@@ -234,4 +234,8 @@ function displayOrderSummaryRows() {
     document.getElementById('summary-total').textContent = totalHTML;
     cartItemsContainer.innerHTML = cartHTML;
   }
+}
+
+function changeImage(imageName) {
+  document.getElementById('mainImage').src = '../public/img/' + imageName;
 }

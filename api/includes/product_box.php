@@ -1,12 +1,18 @@
 <?php
 // ToDo: Remove this and use the real product data
-$producto["calificacion"] = rand(10, 50) / 10; ?>
+$producto["calificacion"] = rand(10, 50) / 10;
+$producto["imagenes"] = !empty($producto["imagenes"]) ? json_decode($producto["imagenes"], true) : ["default.png"];
+?>
+
 <div class="bg-white shadow-md p-4 flex flex-col justify-between h-full">
     <a href="index.php?producto=<?= $producto["id"] ?>">
-        <div>
-            <img style="view-transition-name: product-image-<?= $producto["id"] ?>" src="public/img/<?= "default.png" ?>" alt="Producto" class="w-full h-auto rounded-md mb-2">
+        <div class="flex flex-col flex-grow">
+            <!-- Contenedor de la imagen con un tamaño máximo -->
+            <div style="height: 200px; overflow: hidden;" class="mb-2"> 
+                <img src="public/img/<?= $producto["imagenes"][0] ?>" alt="Producto" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
             <h2 class="text-lg font-semibold text-gray-800"><?= $producto["nombre"] ?></h2>
-            <p class="text-sm text-gray-600 mb-2"><?= $producto["descripcion"] ?></p>
+            <p class="text-sm text-gray-600"><?= $producto["descripcion"] ?></p>
         </div>
         <!-- calificacion -->
         <div class="flex justify-center items-center mb-2" style="view-transition-name: product-rating-<?= $producto["id"] ?>">

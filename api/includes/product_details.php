@@ -3,6 +3,7 @@ $id = $conn->real_escape_string($_GET["producto"]);
 $sql = "SELECT * FROM productos WHERE id = $id";
 $resultado = $conn->query($sql);
 $producto = $resultado->fetch_assoc();
+$producto["imagenes"] = !empty($producto["imagenes"]) ? json_decode($producto["imagenes"], true) : ["default.png"];
 
 $sql = "SELECT c.nombre FROM categorias c INNER JOIN categorias_productos cp ON c.id = cp.id_categoria WHERE cp.id_producto = $id";
 $resultado = $conn->query($sql);
@@ -37,8 +38,18 @@ while ($categoria = $resultado->fetch_assoc()) {
 
 <div class="container flex items-center justify-center m-8 mx-auto">
     <!-- Image to left -->
-    <div class="w-1/2">
-        <img style="view-transition-name: product-image-<?= $producto["id"] ?>" src="../public/img/default.png" alt="Producto" class="max-w-full h-auto mx-auto">
+    <div class="w-1/2 flex flex-col items-center">
+        <!-- Contenedor del visor de imágenes con tamaño fijo -->
+        <div style="width: 100%; height: 400px; overflow: hidden;">
+            <img id="mainImage" src="../public/img/<?= $producto["imagenes"][0] ?>" alt="Producto" class="max-w-full h-full object-contain mx-auto">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="flex mt-4">
+            <?php foreach ($producto["imagenes"] as $imagen): ?>
+                <img src="../public/img/<?= $imagen ?>" alt="Thumbnail" class="w-14 h-14 object-contain cursor-pointer" onclick="changeImage('<?= $imagen ?>')" style="border: 2px solid #ddd; margin-right: 5px;">
+            <?php endforeach; ?>
+        </div>
     </div>
     <!-- Details to right -->
     <div class="w-1/2 px-8">
