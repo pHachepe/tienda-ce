@@ -47,7 +47,7 @@ while ($categoria = $resultado->fetch_assoc()) {
         <!-- Thumbnails -->
         <div class="flex mt-4">
             <?php foreach ($producto["imagenes"] as $imagen): ?>
-                <img src="../public/img/<?= $imagen ?>" alt="Thumbnail" class="w-14 h-14 object-contain cursor-pointer" onclick="changeImage('<?= $imagen ?>')" style="border: 2px solid #ddd; margin-right: 5px;">
+                <img src="../public/img/<?= $imagen ?>" alt="Thumbnail" class="w-14 h-14 object-contain cursor-pointer p-1" onclick="changeImage('<?= $imagen ?>')" style="border: 2px solid #ddd; margin-right: 5px;">
             <?php endforeach; ?>
         </div>
     </div>
