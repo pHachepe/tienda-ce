@@ -17,12 +17,12 @@ while ($categoria = $resultado->fetch_assoc()) {
 <nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
-            <a href="index.php" class="text-blue-500"><?= HOME ?></a>
+            <a href="?" class="text-blue-500"><?= HOME ?></a>
             <span class="mx-2 text-gray-500"><?= SEPARATOR ?></span>
         </li>
         <?php foreach ($categorias as $categoria): ?>
             <li class="flex items-center">
-                <a href="index.php?categoria=<?= $categoria ?>" class="text-blue-500"><?= $categoria ?></a>
+                <a href="?categoria=<?= $categoria ?>" class="text-blue-500"><?= $categoria ?></a>
                 <?php if ($categoria != end($categorias)): ?>
                     <span class="mx-2 text-gray-500">|</span>
                 <?php else: ?>

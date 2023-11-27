@@ -12,7 +12,7 @@ for ($i = 0; $i < $filas; $i++) {
 <nav class="bg-blue-500 text-white">
     <div class="container mx-auto py-4 grid grid-cols-6 items-center">
         <h1 class="col-span-1 text-2xl font-semibold">
-            <a href="index.php"><?= TITLE ?></a>
+            <a href="?"><?= TITLE ?></a>
         </h1>
 
         <form method="GET" class="relative col-span-4 flex pt-2 mt-1">

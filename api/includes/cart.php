@@ -11,7 +11,7 @@
             <h1 id="total" class="font-semibold text-gray-700 text-2xl text-center"></h1>
         </div>
 
-        <form method="POST" action="?checkout">
+        <form method="POST" action="?checkout" class="m-0">
             <button id="checkout-btn" class="bg-blue-500 text-white py-3 rounded w-full text-center text-xl font-semibold hover:bg-blue-600">
                 <i class="fas fa-credit-card"></i>
                 <?= CHECKOUT ?>

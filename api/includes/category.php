@@ -44,7 +44,7 @@ if (isset($_GET["categoria"])) {
 <nav class="bg-gray-100 p-4" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
         <li class="flex items-center">
-            <a href="index.php" class="text-blue-500"><?= HOME ?></a>
+            <a href="?" class="text-blue-500"><?= HOME ?></a>
             <span class="mx-2 text-gray-500"><?= SEPARATOR ?></span>
         </li>
         <li class="flex items-center">

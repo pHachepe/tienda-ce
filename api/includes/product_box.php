@@ -5,7 +5,7 @@ $producto["imagenes"] = !empty($producto["imagenes"]) ? json_decode($producto["i
 ?>
 
 <div class="bg-white shadow-md p-4 flex flex-col justify-between h-full">
-    <a href="index.php?producto=<?= $producto["id"] ?>">
+    <a href="?producto=<?= $producto["id"] ?>">
         <div class="flex flex-col flex-grow">
             <!-- Contenedor de la imagen con un tamaño máximo -->
             <div style="height: 200px; overflow: hidden;" class="mb-2"> 
