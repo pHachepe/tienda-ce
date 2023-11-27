@@ -50,7 +50,7 @@ INSERT INTO `productos` VALUES
 (4,'Auriculares inalámbricos','Auriculares Bluetooth con cancelación de ruido.',149.99,5,'[\"auriculares-inalambricos.jpg\"]'),
 (5,'Cámara DSLR','Cámara réflex digital con lentes intercambiables.',799.99,5,'[\"camara-dslr.jpg\"]'),
 (6,'Tablet','Tablet de última generación con pantalla táctil.',349.99,5,'[\"tablet.jpg\"]'),
-(7,'Altavoz Bluetooth','Altavoz portátil con conectividad Bluetooth.',79.99,5,'[\"altavoz-bluetooth.jpg\",\"altavoz-bluetooth.jpg-2\"]'),
+(7,'Altavoz Bluetooth','Altavoz portátil con conectividad Bluetooth.',79.99,5,'[\"altavoz-bluetooth.jpg\",\"altavoz-bluetooth-2.jpg\"]'),
 (8,'Reloj inteligente','Reloj con seguimiento de actividad y notificaciones.',199.99,5,'[\"reloj-inteligente.jpg\"]'),
 (9,'Consola de videojuegos','Consola de juegos de alta gama para experiencias de juego inmersivas.',499.99,5,'[\"ps5.jpg\"]'),
 (10,'Impresora 3D','Impresora 3D para crear objetos tridimensionales.',299.99,5,NULL),
