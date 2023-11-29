@@ -12,7 +12,7 @@
 </nav>
 
 <!-- Contenedor Principal -->
-<form id="orderForm">
+<form id="orderForm" method="POST">
     <div class="m-8">
         <div class="flex gap-8 flex-wrap md:flex-nowrap">
             <!-- Formulario de Información del Usuario -->
