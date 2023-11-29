@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCart();
   updateCartDropdown();
   setupLoginFormListener();
+  setupOrderFormListener();
   displayOrderSummaryRows();
 
   if (document.startViewTransition) {
