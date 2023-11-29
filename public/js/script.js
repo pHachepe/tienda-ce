@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // si incluye el parámetro ?login o ?logout no intercepta la navegación para que se recargue la página completa
       if (params.has('login') || params.has('logout')) {
         event.continue();
+      } else if (params.has('checkout')) {
+        setupOrderFormListener();
       } else {
         // si no es una navegación en el mismo dominio (origen) no intercepta
         if (location.origin !== toUrl.origin) return
@@ -172,6 +174,15 @@ function setupLoginFormListener() {
   });
 }
 
+function setupOrderFormListener() {
+  const orderForm = document.getElementById("orderForm");
+  if (!orderForm) return;
+  orderForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    handleOrder(event);
+  });
+}
+
 function handleLogin(event) {
   const formData = new FormData(event.target);
   const loginMessage = document.getElementById("loginMessage");
@@ -198,6 +209,34 @@ function handleLogin(event) {
         loginMessage.classList.add('opacity-0');
       }, 3000);
     })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+function handleOrder(event) {
+  const formData = new FormData(event.target);
+  // Crear un objeto a partir de los datos del formulario
+  let formObject = {};
+  formData.forEach(function (value, key) {
+    formObject[key] = value;
+  });
+
+  const cart = getCart();
+
+  // Combinar los datos del formulario y del carrito
+  const order = {
+    form: formObject,
+    cart: cart
+  };
+
+  const orderMessage = document.getElementById("orderMessage");
+
+  fetch('api/order.php', {
+    method: 'POST',
+    body: JSON.stringify(order),
+  })
+    .then(response => console.log('prueba order'))//response.json())
     .catch(error => {
       console.error('Error:', error);
     });
