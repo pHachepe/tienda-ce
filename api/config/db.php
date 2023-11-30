@@ -23,3 +23,5 @@ if ($isLocal) {
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+require_once "session_db_handler.php";
