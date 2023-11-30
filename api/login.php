@@ -1,13 +1,12 @@
 <?php
 require_once "config/db.php";
-require_once "includes/session_db_handler.php";
 require_once "includes/constants.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM usuarios WHERE correo = ?";
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
 
@@ -20,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["user"] = $user;
             echo json_encode([
                 "success" => true,
-                "msg" => SUCCESS,
+                "msg" => LOGIN_SUCCESS,
                 "Session" => json_encode($_SESSION),
             ]);
         } else {
