@@ -166,10 +166,11 @@ DROP TABLE IF EXISTS `pedidos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pedidos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_usuario` int DEFAULT NULL,
-  `fecha_pedido` date DEFAULT NULL,
-  `fecha_entrega` date DEFAULT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
+  `id_usuario` int NOT NULL,
+  `fecha` datetime DEFAULT NOW(),
+  `direccion` varchar(255) NOT NULL,
+  `tarjeta` varchar(255) NOT NULL,
+  `total` decimal(10,2) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -250,7 +251,7 @@ CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) DEFAULT NULL,
   `apellidos` varchar(255) DEFAULT NULL,
-  `correo` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
   `contraseña` varchar(255) DEFAULT NULL,
   `telefono` varchar(255) DEFAULT NULL,
   `direccion` varchar(255) DEFAULT NULL,
@@ -266,7 +267,9 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Abraham','Fontana','admin','$2y$10$e7B/evoXxX.vUKUHyP6DpeXGBmtmwXzOvErwMfY9BWD9LChnIBdLq','987654321','Calle Falsa, 123','1234567890AFR',1);
+INSERT INTO `usuarios` VALUES
+(1,'Admin','-','admin','$2y$10$e7B/evoXxX.vUKUHyP6DpeXGBmtmwXzOvErwMfY9BWD9LChnIBdLq','123456789','Calle Falsa, 321','1234567890ADM',1),
+(2,'Abraham','Fontana','abrahamfontana@gmail.com','$2y$10$e7B/evoXxX.vUKUHyP6DpeXGBmtmwXzOvErwMfY9BWD9LChnIBdLq','987654321','Calle Falsa, 123','1234567890AFR',0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 

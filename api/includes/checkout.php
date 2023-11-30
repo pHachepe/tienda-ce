@@ -41,7 +41,7 @@
                     <input required id="email" name="email" type="email" placeholder="Email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-600" value="<?= isset(
                         $_SESSION["loggedin"]
                     )
-                        ? $_SESSION["user"]["correo"]
+                        ? $_SESSION["user"]["email"]
                         : "" ?>" <?= isset($_SESSION["loggedin"]) ? "disabled" : "" ?>>
                 </div>
                 <!-- Dirección y Tarjeta -->

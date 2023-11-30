@@ -1,7 +1,6 @@
 <?php
 require_once "api/includes/constants.php";
 require_once "api/config/db.php";
-require_once "api/includes/session_db_handler.php";
 
 $params = $_GET;
 if (isset($_GET["logout"])) {
@@ -41,8 +40,8 @@ if (isset($_GET["logout"])) {
             include_once "api/includes/cart.php";
         } elseif (isset($_GET["checkout"])) {
             include_once "api/includes/checkout.php";
-        } elseif (isset($_GET["profile"])) {
-            include_once "api/includes/profile.php";
+        } elseif (isset($_GET["profile"]) || isset($_GET["addresses"]) || isset($_GET["payments"])) {
+            include_once "api/includes/unimplemented.php";
         } elseif (isset($_GET["orders"])) {
             include_once "api/includes/orders.php";
         } else {
@@ -52,7 +51,7 @@ if (isset($_GET["logout"])) {
 
     <?php include_once "api/includes/footer.php"; ?>
 
-    <div id="loginMessage" class="fixed bottom-4 right-4 text-white px-4 py-2 rounded shadow-md opacity-0 transition-opacity"></div>
+    <div id="messages" class="fixed bottom-4 right-4 text-white px-4 py-2 rounded shadow-md opacity-0 transition-opacity"></div>
 </body>
 
 </html>
