@@ -8,6 +8,6 @@
     "tailwindcss": "3.3.3"
   },
   "scripts": {
-    "build:css": "npx postcss src/styles.css -o api/public/css/styles.min.css"
+    "build:css": "npx postcss src/styles.css -o public/css/styles.min.css"
   }
 }

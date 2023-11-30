@@ -19,8 +19,8 @@ if (isset($_GET["logout"])) {
     <meta name="view-transition" content="same-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda C.E.</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="public/css/styles.min.css">
+    <link rel="stylesheet" href="public/css/font-awesome.6.0.0.all.min.css" />
+    <script src="public/css/tailwind.js"></script>
     <script src="public/js/script.js"></script>
 </head>
 
