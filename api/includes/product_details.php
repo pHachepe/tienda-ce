@@ -41,13 +41,13 @@ while ($categoria = $resultado->fetch_assoc()) {
     <div class="w-1/2 flex flex-col items-center">
         <!-- Contenedor del visor de imágenes con tamaño fijo -->
         <div style="width: 100%; height: 400px; overflow: hidden;">
-            <img id="mainImage" src="../public/img/<?= $producto["imagenes"][0] ?>" alt="Producto" class="max-w-full h-full object-contain mx-auto">
+            <img id="mainImage" src="public/img/<?= $producto["imagenes"][0] ?>" alt="Producto" class="max-w-full h-full object-contain mx-auto">
         </div>
 
         <!-- Thumbnails -->
         <div class="flex mt-4">
             <?php foreach ($producto["imagenes"] as $imagen): ?>
-                <img src="../public/img/<?= $imagen ?>" alt="Thumbnail" class="w-14 h-14 object-contain cursor-pointer p-1" onclick="changeImage('<?= $imagen ?>')" style="border: 2px solid #ddd; margin-right: 5px;">
+                <img src="public/img/<?= $imagen ?>" alt="Thumbnail" class="w-14 h-14 object-contain cursor-pointer p-1" onclick="changeImage('<?= $imagen ?>')" style="border: 2px solid #ddd; margin-right: 5px;">
             <?php endforeach; ?>
         </div>
     </div>

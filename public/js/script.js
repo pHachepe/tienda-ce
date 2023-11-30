@@ -290,5 +290,5 @@ function displayOrderSummaryRows() {
 }
 
 function changeImage(imageName) {
-  document.getElementById('mainImage').src = '../public/img/' + imageName;
+  document.getElementById('mainImage').src = 'public/img/' + imageName;
 }
