@@ -240,6 +240,7 @@ function handleOrder(event) {
         const url = new URL(location.href);
         url.search = '';
         url.searchParams.set('orders', true);
+        url.searchParams.set('id_usuario', responseJson.id_usuario);
         window.location.href = url;
       } else {
         orderMessage.classList.add('bg-red-500');

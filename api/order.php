@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         "success" => false,
                         "msg" => ERROR_EMAIL_EXISTS,
                     ]);
-                    exit;
+                    exit();
                 }
                 // Si existe un usuario con ese email pero no tiene contraseña es un usuario invitado y puede hacer un pedido como invitado
                 $id_usuario = $user["id"];
@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode([
         "success" => true,
         "msg" => ORDER_SUCCESS,
+        "id_usuario" => $id_usuario,
     ]);
 } else {
     echo json_encode([

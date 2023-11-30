@@ -1,56 +1,56 @@
 <?php
-
 // Si es admin ver todos los pedidos
 if (isset($_SESSION["user"]["es_admin"]) && $_SESSION["user"]["es_admin"]) {
-  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id ORDER BY fecha DESC";
-  $stmt = $conn->prepare($sql);
-// Si recibe por get un id de usuario invitado muestra los pedidos de ese usuario
+    $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id ORDER BY fecha DESC";
+    $stmt = $conn->prepare($sql);
+    // Si está logueado y no es admin ver solo sus pedidos
+} elseif (isset($_SESSION["loggedin"])) {
+    // Si es usuario normal ver solo sus pedidos
+    $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? ORDER BY fecha DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $_SESSION["user"]["id"]);
+    // Si recibe por get un id de usuario invitado muestra los pedidos de ese usuario
 } elseif (isset($_GET["id_usuario"])) {
-  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? AND usuarios.nombre IS NULL ORDER BY fecha DESC";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("i", $_GET["id_usuario"]);
-  // Si está logueado y no es admin ver solo sus pedidos
-} else if (isset($_SESSION["user"]["loggedin"]) && $_SESSION["user"]["loggedin"]) {
-  // Si es usuario normal ver solo sus pedidos
-  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? ORDER BY fecha DESC";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("i", $_SESSION["user"]["id"]);
+    $sql =
+        "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? AND usuarios.nombre IS NULL ORDER BY fecha DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $_GET["id_usuario"]);
 } else {
-  // Si no hay usuario mostrar error
-  echo "<div class='flex justify-center items-center min-h-full'><h2 class='text-lg font-semibold text-gray-800'>" . ERROR_INVALID_AUTH . "</h2></div>";
-  exit;
+    // Si no hay usuario mostrar error
+    echo "<div class='flex justify-center items-center min-h-full'><h2 class='text-lg font-semibold text-gray-800'>" . ERROR_INVALID_AUTH . "</h2></div>";
+    exit();
 }
 
 if ($stmt->execute()) {
-  $result = $stmt->get_result();
-  $filas = $result->num_rows;
-  $pedidos = [];
-  for ($i = 0; $i < $filas; $i++) {
-    $result->data_seek($i);
-    $fila = $result->fetch_array(MYSQLI_ASSOC);
-    $pedidos[$i] = $fila;
-  }
-
-  // Obtenemos los productos de cada pedido
-  foreach ($pedidos as &$pedido) { // Usa & para modificar directamente el array $pedidos
-    $sql = "SELECT * FROM pedidos_productos INNER JOIN productos ON pedidos_productos.id_producto = productos.id WHERE id_pedido = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $pedido["id"]);
-
-    if ($stmt->execute()) {
-      $result = $stmt->get_result();
-      $filas = $result->num_rows;
-      $productos = [];
-      for ($i = 0; $i < $filas; $i++) {
+    $result = $stmt->get_result();
+    $filas = $result->num_rows;
+    $pedidos = [];
+    for ($i = 0; $i < $filas; $i++) {
         $result->data_seek($i);
         $fila = $result->fetch_array(MYSQLI_ASSOC);
-        $productos[$i] = $fila;
-      }
-      $pedido["productos"] = $productos; // Asigna los productos al pedido actual
+        $pedidos[$i] = $fila;
     }
-  }
-  unset($pedido); // Rompe la referencia con el último elemento (IMPORTANTE SI NO SE ELIMINA DA ERROR AL HACER UNA CONSULTA DESPUÉS)
 
+    // Obtenemos los productos de cada pedido
+    foreach ($pedidos as &$pedido) {
+        // Usa & para modificar directamente el array $pedidos
+        $sql = "SELECT * FROM pedidos_productos INNER JOIN productos ON pedidos_productos.id_producto = productos.id WHERE id_pedido = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $pedido["id"]);
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $filas = $result->num_rows;
+            $productos = [];
+            for ($i = 0; $i < $filas; $i++) {
+                $result->data_seek($i);
+                $fila = $result->fetch_array(MYSQLI_ASSOC);
+                $productos[$i] = $fila;
+            }
+            $pedido["productos"] = $productos; // Asigna los productos al pedido actual
+        }
+    }
+    unset($pedido); // Rompe la referencia con el último elemento (IMPORTANTE SI NO SE ELIMINA DA ERROR AL HACER UNA CONSULTA DESPUÉS)
 }
 ?>
 <!-- Breadcrumb -->
@@ -69,27 +69,27 @@ if ($stmt->execute()) {
 <div class="container mx-auto px-4 py-8">
   <h1 class="text-3xl font-bold text-center mb-10 text-gray-800">Historial de Pedidos</h1>
 
-  <?php foreach ($pedidos as $pedido) : ?>
+  <?php foreach ($pedidos as $pedido): ?>
     <div class="mb-8">
       <div class="bg-white shadow-lg overflow-hidden">
         <div class="px-6 py-4 border-b">
-          <div class="text-2xl font-semibold text-gray-700">Pedido ID: <?= $pedido['id'] ?></div>
-          <?php if (isset($_SESSION["user"]["es_admin"]) && $_SESSION["user"]["es_admin"]) : ?>
-            <div class="text-gray-600"><strong>Usuario <?= $pedido['nombre'] ? "Registrado" : "Invitado" ?>:</strong> <?= $pedido['id_usuario'] ?> - <?= $pedido['email'] ?></div>
+          <div class="text-2xl font-semibold text-gray-700">Pedido ID: <?= $pedido["id"] ?></div>
+          <?php if (isset($_SESSION["user"]["es_admin"]) && $_SESSION["user"]["es_admin"]): ?>
+            <div class="text-gray-600"><strong>Usuario <?= $pedido["nombre"] ? "Registrado" : "Invitado" ?>:</strong> <?= $pedido["id_usuario"] ?> - <?= $pedido["email"] ?></div>
           <?php endif; ?>
-          <p class="text-gray-600"><strong>Fecha:</strong> <?= date("d/m/Y H:i", strtotime($pedido['fecha'])) ?></p>
-          <p class="text-gray-600"><strong>Dirección:</strong> <?= $pedido['direccion'] ?></p>
-          <p class="text-gray-600"><strong>Tarjeta:</strong> <?= $pedido['tarjeta'] ?></p>
-          <p class="text-gray-600"><strong>Total:</strong> <?= number_format($pedido['total'], 2, ",", ".") . CURRENCY ?></p>
+          <p class="text-gray-600"><strong>Fecha:</strong> <?= date("d/m/Y H:i", strtotime($pedido["fecha"])) ?></p>
+          <p class="text-gray-600"><strong>Dirección:</strong> <?= $pedido["direccion"] ?></p>
+          <p class="text-gray-600"><strong>Tarjeta:</strong> <?= $pedido["tarjeta"] ?></p>
+          <p class="text-gray-600"><strong>Total:</strong> <?= number_format($pedido["total"], 2, ",", ".") . CURRENCY ?></p>
           <div class="px-6 py-4">
             <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300">Ver Productos</button>
             <ul class="mt-4 hidden">
-              <?php foreach ($pedido['productos'] as $producto) : ?>
+              <?php foreach ($pedido["productos"] as $producto): ?>
                 <li class="flex items-center border-t p-2">
-                  <span class="mr-2 font-medium"><?= $producto['cantidad'] ?> x</span>
+                  <span class="mr-2 font-medium"><?= $producto["cantidad"] ?> x</span>
                   <?php $producto["imagen"] = !empty($producto["imagenes"]) ? json_decode($producto["imagenes"], true)[0] : "default.png"; ?>
                   <img src="public/img/<?= $producto["imagen"] ?>" alt="<?= $producto["nombre"] ?>" class="w-14 h-14 object-contain inline-block p-1">
-                  <span class="flex-grow"><?= $producto['nombre'] ?> - <?= number_format($producto['precio'], 2, ",", ".") . CURRENCY ?></span>
+                  <span class="flex-grow"><?= $producto["nombre"] ?> - <?= number_format($producto["precio"], 2, ",", ".") . CURRENCY ?></span>
                 </li>
               <?php endforeach; ?>
             </ul>

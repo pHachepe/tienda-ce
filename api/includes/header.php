@@ -40,7 +40,11 @@ for ($i = 0; $i < $filas; $i++) {
             <!-- Dropdown My Account -->
             <div class="relative group hover:bg-white hover:text-blue-500 rounded-t-lg px-2 py-3">
                 <button>
-                    <i class="fas fa-user"></i> <?= isset($_SESSION["loggedin"]) ? (mb_strlen($_SESSION["user"]["nombre"]) > 8 ? mb_substr($_SESSION["user"]["nombre"], 0, 8) . '...' : $_SESSION["user"]["nombre"]) : MY_ACCOUNT ?>
+                    <i class="fas fa-user"></i> <?= isset($_SESSION["loggedin"])
+                        ? (mb_strlen($_SESSION["user"]["nombre"]) > 8
+                            ? mb_substr($_SESSION["user"]["nombre"], 0, 8) . "..."
+                            : $_SESSION["user"]["nombre"])
+                        : MY_ACCOUNT ?>
                 </button>
 
                 <?php if (isset($_SESSION["loggedin"])) { ?>
