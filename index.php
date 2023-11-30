@@ -34,8 +34,6 @@ if (isset($_GET["logout"])) {
             include_once "api/includes/category.php";
         } elseif (isset($_GET["search"])) {
             include_once "api/includes/search.php";
-        } elseif (isset($_GET["cart"])) {
-            include_once "api/includes/cart.php";
         } elseif (isset($_GET["checkout"])) {
             include_once "api/includes/checkout.php";
         } elseif (isset($_GET["profile"]) || isset($_GET["addresses"]) || isset($_GET["payments"])) {
