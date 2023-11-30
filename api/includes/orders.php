@@ -1,7 +1,25 @@
 <?php
-$sql = "SELECT * FROM pedidos WHERE id_usuario = ? ORDER BY fecha DESC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_SESSION["user"]["id"]);
+
+// Si es admin ver todos los pedidos
+if (isset($_SESSION["user"]["es_admin"]) && $_SESSION["user"]["es_admin"]) {
+  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id ORDER BY fecha DESC";
+  $stmt = $conn->prepare($sql);
+// Si recibe por get un id de usuario invitado muestra los pedidos de ese usuario
+} elseif (isset($_GET["id_usuario"])) {
+  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? AND usuarios.nombre IS NULL ORDER BY fecha DESC";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $_GET["id_usuario"]);
+  // Si está logueado y no es admin ver solo sus pedidos
+} else if (isset($_SESSION["user"]["loggedin"]) && $_SESSION["user"]["loggedin"]) {
+  // Si es usuario normal ver solo sus pedidos
+  $sql = "SELECT pedidos.*, usuarios.nombre as nombre, usuarios.email as email FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id WHERE id_usuario = ? ORDER BY fecha DESC";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $_SESSION["user"]["id"]);
+} else {
+  // Si no hay usuario mostrar error
+  echo "<div class='flex justify-center items-center min-h-full'><h2 class='text-lg font-semibold text-gray-800'>" . ERROR_INVALID_AUTH . "</h2></div>";
+  exit;
+}
 
 if ($stmt->execute()) {
   $result = $stmt->get_result();
@@ -56,6 +74,9 @@ if ($stmt->execute()) {
       <div class="bg-white shadow-lg overflow-hidden">
         <div class="px-6 py-4 border-b">
           <div class="text-2xl font-semibold text-gray-700">Pedido ID: <?= $pedido['id'] ?></div>
+          <?php if (isset($_SESSION["user"]["es_admin"]) && $_SESSION["user"]["es_admin"]) : ?>
+            <div class="text-gray-600"><strong>Usuario <?= $pedido['nombre'] ? "Registrado" : "Invitado" ?>:</strong> <?= $pedido['id_usuario'] ?> - <?= $pedido['email'] ?></div>
+          <?php endif; ?>
           <p class="text-gray-600"><strong>Fecha:</strong> <?= date("d/m/Y H:i", strtotime($pedido['fecha'])) ?></p>
           <p class="text-gray-600"><strong>Dirección:</strong> <?= $pedido['direccion'] ?></p>
           <p class="text-gray-600"><strong>Tarjeta:</strong> <?= $pedido['tarjeta'] ?></p>

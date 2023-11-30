@@ -15,6 +15,7 @@ const ERROR_INVALID_CREDENTIALS = "Credenciales inválidas";
 const ERROR_EMAIL_EXISTS = "Ya existe un usuario con ese email, por favor inicia sesión o utiliza otro email";
 const ERROR_DB = "Error de base de datos";
 const ERROR_INVALID_REQUEST = "Petición inválida";
+const ERROR_INVALID_AUTH = "No tienes permisos para acceder a esta página";
 const SEARCH = "Buscar";
 const PROFILE = "Perfil";
 const ORDERS = "Pedidos";
