@@ -186,7 +186,7 @@ function setupOrderFormListener() {
 
 function handleLogin(event) {
   const formData = new FormData(event.target);
-  const loginMessage = document.getElementById("loginMessage");
+  const loginMessage = document.getElementById("messages");
 
   fetch('api/login.php', {
     method: 'POST',
@@ -217,30 +217,40 @@ function handleLogin(event) {
 
 function handleOrder(event) {
   const formData = new FormData(event.target);
-  // Crear un objeto a partir de los datos del formulario
-  let formObject = {};
-  formData.forEach(function (value, key) {
-    formObject[key] = value;
-  });
-
   const cart = getCart();
+  formData.append('cart', JSON.stringify(cart));
 
-  // Combinar los datos del formulario y del carrito
-  const order = {
-    form: formObject,
-    cart: cart
-  };
-
-  const orderMessage = document.getElementById("orderMessage");
+  const orderMessage = document.getElementById("messages");
 
   fetch('api/order.php', {
     method: 'POST',
-    body: JSON.stringify(order),
+    body: formData
   })
-    .then(response => console.log('prueba order'))//response.json())
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    .then(response => response.json())
+    .then(responseJson => {
+      if (responseJson.success) {
+        orderMessage.classList.add('bg-green-500');
+        orderMessage.classList.remove('bg-red-500');
+
+        // Vaciar y actualizar el carrito
+        setCart([]);
+        updateCartDropdown();
+
+        // Redirigir a la página de pedidos
+        const url = new URL(location.href);
+        url.search = '';
+        url.searchParams.set('orders', true);
+        window.location.href = url;
+      } else {
+        orderMessage.classList.add('bg-red-500');
+        orderMessage.classList.remove('bg-green-500');
+      }
+      orderMessage.textContent = responseJson.msg;
+      orderMessage.classList.remove('opacity-0');
+      setTimeout(() => {
+        orderMessage.classList.add('opacity-0');
+      }, 3000);
+    })
 }
 
 function displayOrderSummaryRows() {
