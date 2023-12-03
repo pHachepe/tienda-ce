@@ -1,0 +1,17 @@
+# flyctl launch added from .gitignore
+# Vercel
+**/.vercel
+
+# Composer
+vendor
+composer.lock
+
+# User-specific files
+**/**/.env
+
+# OS generated files
+**/**/.DS_Store
+
+# node_modules
+**/node_modules
+fly.toml
