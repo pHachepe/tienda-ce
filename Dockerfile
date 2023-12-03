@@ -12,8 +12,8 @@ COPY . /var/www/html/
 COPY sql/tienda_abraham.sql /tienda_abraham.sql
 RUN rm /var/www/html/index.html
 
-# Expone el puerto 80
-EXPOSE 80
+# Expone el puerto 8080
+EXPOSE 8080
 
 
 # Crea un script de inicio personalizado
