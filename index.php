@@ -1,6 +1,6 @@
 <?php
-require_once "api/includes/constants.php";
 require_once "api/config/db.php";
+require_once "api/includes/constants.php";
 
 $params = $_GET;
 if (isset($_GET["logout"])) {
