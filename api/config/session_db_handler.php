@@ -38,19 +38,24 @@ function writeSession($id, $data)
 {
     global $conn;
     $stmt = $conn->prepare("REPLACE INTO sessions (id, data) VALUES (?, ?)");
-    return $stmt->execute([$id, $data]);
+    $stmt->bind_param("ss", $id, $data);
+    return $stmt->execute();
 }
+
 
 function destroySession($id)
 {
     global $conn;
     $stmt = $conn->prepare("DELETE FROM sessions WHERE id = ?");
-    return $stmt->execute([$id]);
+    $stmt->bind_param("s", $id);
+    return $stmt->execute();
 }
+
 
 function gcSession($maxLifetime)
 {
     global $conn;
     $stmt = $conn->prepare("DELETE FROM sessions WHERE last_accessed < NOW() - INTERVAL ? SECOND");
-    return $stmt->execute([$maxLifetime]);
+    $stmt->bind_param("i", $maxLifetime);
+    return $stmt->execute();
 }
