@@ -44,7 +44,7 @@ CREATE TABLE `usuarios` (
 LOCK TABLES `usuarios` WRITE;
 INSERT INTO `usuarios` VALUES
 (1,'Admin','-','admin','$2y$10$e7B/evoXxX.vUKUHyP6DpeXGBmtmwXzOvErwMfY9BWD9LChnIBdLq','123456789','Calle Falsa, 321','1234567890ADM',1),
-(2,'Abraham','Fontana','abrahamfontana@gmail.com','$2y$10$e7B/evoXxX.vUKUHyP6DpeXGBmtmwXzOvErwMfY9BWD9LChnIBdLq','987654321','Calle Falsa, 123','1234567890AFR',0);
+(2,'Abraham','Fontana','abrahamfontana@gmail.com','$2y$10$5X2WFsrFEtLrBu5u4PoxfOF8zewM3Bm4oD6afs.ZE1WKCSdTtcX0u','987654321','Calle Falsa, 123','1234567890AFR',0);
 UNLOCK TABLES;
 
 --
